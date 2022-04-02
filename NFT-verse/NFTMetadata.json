@@ -1,0 +1,23 @@
+{
+    "description": "xyz",
+    "image": "QmZXHpD6bUopBL66qayStKSNti8NUtQgkxJHCusjmyPmHT",
+    "name": "xyz #123",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "White"
+        },
+        {
+            "trait_type": "Hair Style",
+            "value": "Long Straight Bangs"
+        },
+        {
+            "trait_type": "Hair Color",
+            "value": "Black"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": ""
+        }
+    ]
+}
