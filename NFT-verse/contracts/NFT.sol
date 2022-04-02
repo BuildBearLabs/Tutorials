@@ -20,7 +20,7 @@ contract NFT is ERC721 {
     constructor() ERC721("UVLabs", "UVL") {}
 
     // defined function mint which is taking a valid recipient's address as argument
-    function mint(address recipientAddress) 
+    function mint(address recipientAddress, sring memory tokenURI) 
     public returns (uint256) {
         // increments tokenId value by one
         tokenId.increment();
@@ -28,6 +28,8 @@ contract NFT is ERC721 {
         // _safeMint is a private method 
         // which mints the next value of the counter
         _safeMint(recipientAddress, newItemId);
+        // 'tokenURI' as URI of our NFT's metadata file
+        _setTokenURI(newItemId, tokenURI);
         // returns a newly minted token's ID back to caller
         return newItemId;
     }
