@@ -17,7 +17,7 @@ async function main() {
   const estimatedGas = await nftContractInstance.connect(signer).estimateGas.mint(signerAddress, tokenURI);
   console.log(`estimatedGas in Ether is ${hre.ethers.utils.formatUnits(estimatedGas.toString(), "ether")}`);
   console.log(`estimatedGas in Gwei is ${hre.ethers.utils.formatUnits(estimatedGas.toString(), "gwei")}`);
-console.log(signerAddress);
+  
   nftContractInstance.mint(signerAddress, tokenURI)
   .then(console.log(`Your transaction is confirmed!`))
   
