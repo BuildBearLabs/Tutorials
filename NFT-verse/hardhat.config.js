@@ -11,7 +11,7 @@ module.exports = {
   solidity: "0.8.1",
   networks: {
     hardhat: {},
-    "mumbai-matic": {
+    "ropsten": {
       url: API_URL,
       accounts: [`0x${PRIVATE_KEY}`],
     },
