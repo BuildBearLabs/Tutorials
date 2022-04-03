@@ -9,13 +9,15 @@ const {API_URL, PRIVATE_KEY} = process.env;
 
 module.exports = {
   solidity: "0.8.1",
-  defaultNetwork:'ropsten',
   networks: {
     hardhat: {},
-    ropsten: {
+    "mumbai-matic": {
       url: API_URL,
       accounts: [`0x${PRIVATE_KEY}`],
-      gasLimit: 2100000000,
+    },
+    'truffle': {
+      url: "http://localhost:24012/rpc"
     }
+
   }
 }
