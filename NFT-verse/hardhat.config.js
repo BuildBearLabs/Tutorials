@@ -14,7 +14,8 @@ module.exports = {
     hardhat: {},
     ropsten: {
       url: API_URL,
-      accounts: [`0x${PRIVATE_KEY}`]
+      accounts: [`0x${PRIVATE_KEY}`],
+      gasLimit: 2100000000,
     }
   }
 }

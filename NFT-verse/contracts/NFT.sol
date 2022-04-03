@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 
+
 // our contract NDT inherits from openzeppelin's ERC721 contract
 contract NFT is ERC721 {
 
@@ -23,6 +24,8 @@ contract NFT is ERC721 {
     // passing two arguments for name and symbol respectively
     constructor() ERC721("UVLabs", "UVL") {}
 
+
+
     // defined function mint which is taking a valid recipient's address as argument
     function mint(address recipientAddress, string memory tokenURI) 
     public returns (uint256) {
@@ -32,12 +35,13 @@ contract NFT is ERC721 {
         // _safeMint is a private method 
         // which mints the next value of the counter
         _safeMint(recipientAddress, newItemId);
+        
        
         // returns a newly minted token's ID back to caller
         return newItemId;
     }
 
-    // returns an URI for a given token ID
+ // returns an URI for a given token ID
     function _baseURI() internal view virtual override returns (string memory) {
         return baseTokenURI;
     }
@@ -46,4 +50,5 @@ contract NFT is ERC721 {
     baseTokenURI = _baseTokenURI;
  
     }
+   
 }
