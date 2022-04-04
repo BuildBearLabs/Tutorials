@@ -1,19 +1,11 @@
 {
-    "description": "Bored Ape avatar",
-    "external_url": "https://images.complex.com/images/fl_lossy,q_auto,w_910,dpr_auto/urpctlwm3rt7shs5nl3o/adidas-bored-ape-yacht-club-nft-indigo-herz",
-    "image": "https://gateway.pinata.cloud/ipfs/QmWY7PPatNLURHRqRHDtK31jbbPzco9C1S1gZTmYk37QFx",
-    "name": "Cool Maunk #1",
+    "description": "UV Labs",
+    "image": "https://gateway.pinata.cloud/ipfs/QmTfjtxzekdGkZvm9qcFaFMWAsgkjUtiU7knSyQ3d2ze62",
+    "name": "UVLabs",
     "attributes": [
         {
-            "trait_type": "Owner", 
-            "value": "Adidas"
-          }, 
-          {
-            "trait_type": "Sunglasses", 
-            "value": "heart-shaped glasses"
-          }, {
-              "trait_type": "Personality",
-              "value": "Cool"
+            "trait_type": "Domain", 
+            "value": "Blockchain"
           }
 ]
 }
