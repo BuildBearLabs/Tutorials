@@ -1,19 +1,19 @@
 {
-    "description": "xyz",
-    "image": "QmZXHpD6bUopBL66qayStKSNti8NUtQgkxJHCusjmyPmHT",
-    "name": "xyz #123",
+    "description": "Bored Ape avatar",
+    "external_url": "https://images.complex.com/images/fl_lossy,q_auto,w_910,dpr_auto/urpctlwm3rt7shs5nl3o/adidas-bored-ape-yacht-club-nft-indigo-herz",
+    "image": "https://gateway.pinata.cloud/ipfs/QmWY7PPatNLURHRqRHDtK31jbbPzco9C1S1gZTmYk37QFx",
+    "name": "Cool Maunk #1",
     "attributes": [
         {
-            "trait_type": "Background",
-            "value": "White"
-        },
-        {
-            "trait_type": "Color",
-            "value": "Black"
-        },
-        {
-            "trait_type": "Accessories",
-            "value": ""
-        }
-    ]
+            "trait_type": "Owner", 
+            "value": "Adidas"
+          }, 
+          {
+            "trait_type": "Sunglasses", 
+            "value": "heart-shaped glasses"
+          }, {
+              "trait_type": "Personality",
+              "value": "Cool"
+          }
+]
 }

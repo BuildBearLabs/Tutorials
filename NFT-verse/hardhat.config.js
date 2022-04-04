@@ -11,13 +11,9 @@ module.exports = {
   solidity: "0.8.1",
   networks: {
     hardhat: {},
-    "ropsten": {
+    "mumbai-matic": {
       url: API_URL,
       accounts: [`0x${PRIVATE_KEY}`],
     },
-    'truffle': {
-      url: "http://localhost:24012/rpc"
-    }
-
   }
 }
