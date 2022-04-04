@@ -41,14 +41,14 @@ contract NFT is ERC721 {
         return newItemId;
     }
 
- // returns an URI for a given token ID
-    function _baseURI() internal view virtual override returns (string memory) {
-        return baseTokenURI;
-    }
-        // sets the base token URI prefix
-       function setBaseTokenURI(string memory _baseTokenURI) public {
-    baseTokenURI = _baseTokenURI;
+//  // returns an URI for a given token ID
+//     function _baseURI() internal view virtual override returns (string memory) {
+//         return baseTokenURI;
+//     }
+//         // sets the base token URI prefix
+//        function setBaseTokenURI(string memory _baseTokenURI) public {
+//     baseTokenURI = _baseTokenURI;
  
-    }
+//     }
    
 }
