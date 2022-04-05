@@ -1,26 +1,27 @@
 const hre = require('hardhat');
 
 async function main() {
-  // tokenURI represents unique identifier of 'token' looks like
-  const tokenURI = "QmWZQJaPHtpRejG2Wc7KJjp1MFwuCepxa4SJ8fBmoyAEBr";
-  // created contract factory of NFT contract
-  const nftContractFactory = await hre.ethers.getContractFactory("NFT");
-  // contract instance created using contract address, contract's abi
-  const nftContractInstance = new hre.ethers.Contract(
-    "0xC77c013F751883304023bc7195CAAEED670A8427", //insert contract address that gets deployed
+  const tokenURI = "https://gateway.pinata.cloud/ipfs/Qmc4ywZjPsHAb67PVNPjRpjKgcqEAhxwy1FzkdPHoo5e4h"; 
+	// this is URL that you will get from Pinata
+
+  const nftContractFactory = await ethers.getContractFactory("NFT");
+  const nftContractInstance = new ethers.Contract(
+    "0x4D89D079aCfef45b7cDA107533A89d5c44DCFb94", //insert contract address that gets deployed
     nftContractFactory.interface,
-   
   )
-  const signer = await hre.ethers.provider.getSigner();
+  const signer = await ethers.provider.getSigner();
   const signerAddress = await signer.getAddress()
-  // const estimatedGas = await nftContractInstance.connect(signer).estimateGas.mint(signerAddress, tokenURI);
-  // console.log(`estimatedGas in Ether is ${hre.ethers.utils.formatUnits(estimatedGas.toString(), "ether")}`);
-  // console.log(`estimatedGas in Gwei is ${hre.ethers.utils.formatUnits(estimatedGas.toString(), "gwei")}`);
-  nftContractInstance.connect(signer).mint(signerAddress, tokenURI)
-  .then((e) => console.log(`Your transaction is confirmed! The transaction hash is ${e.hash}`))
-  .catch((e) => console.log("something went wrong", e));
-  
+  const txn = await nftContractInstance.connect(signer).mint(signerAddress, tokenURI)
+  txn.wait();
+  console.log(`Your transaction has been successfully broadcasted! The transaction hash is ${txn.hash}`);
+  if (hre.network.config.url != 'http://127.0.0.1:8545') {
+    console.log(`\nPlease follow this link https://testnets.opensea.io/${signerAddress}`);
+  };
 };
 
-
-main();
+main()
+.then(() => process.exit(0))
+.catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

@@ -14,13 +14,9 @@ contract NFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private tokenId;
 
-    string public baseURI;
-
     // our constructor function calls the ERC721 
     // passing two arguments for name and symbol respectively
-    constructor(string memory _baseURIinput) ERC721("UVLabs", "UVL") {
-        baseURI = _baseURIinput;
-    }
+    constructor() ERC721("UVLabs", "UVL") {}
 
     // defined function mint which is taking a valid recipient's address as argument
     function mint(address recipientAddress, string memory tokenURI_) public returns (uint256 newItemId) {
@@ -33,7 +29,4 @@ contract NFT is ERC721URIStorage {
         _setTokenURI(newItemId, tokenURI_);
     }
 
-    function _baseURI() internal view override returns (string memory) {
-        return baseURI;
-    }
 }

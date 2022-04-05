@@ -9,6 +9,7 @@ const {API_URL, PRIVATE_KEY} = process.env;
 
 module.exports = {
   solidity: "0.8.1",
+  defaultNetworks: "hardhat",
   networks: {
     hardhat: {},
     "mumbai-matic": {
