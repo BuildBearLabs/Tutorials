@@ -17,13 +17,13 @@ async function main() {
 
     const provider = new ethers.providers.JsonRpcProvider();
 
-    await hre.network.provider.request({
-        method: "hardhat_impersonateAccount",
-        params: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]
-    })
-    // await provider.send("hardhat_impersonateAccount", [
-    //     "0x0ec9e8aA56E0425B60DEe347c8EFbaD959579D0F",
-    // ]);
+    // await hre.network.provider.request({
+    //     method: "hardhat_impersonateAccount",
+    //     params: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]
+    // })
+    await provider.send("hardhat_impersonateAccount", [
+        "0x0ec9e8aA56E0425B60DEe347c8EFbaD959579D0F",
+    ]);
 
     const signer = await provider.getSigner(
         "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
