@@ -31,11 +31,12 @@ async function main() {
         abi,
         signer
     );
-
+    const vitalik_Balance = (await uniToken.balanceOf("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B")).toString()
+    console.log(vitalik_Balance)
     // transferring ETH 
     const tx = await uniToken.transfer(
         "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-        BigNumber.from("1100000000000000000")
+        BigNumber.from(vitalik_Balance)
     );
 
     console.log(tx);
