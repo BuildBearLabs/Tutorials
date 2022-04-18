@@ -1,4 +1,3 @@
-const hre = require("hardhat");
 const { BigNumber, ethers } = require("ethers");
 
 async function main() {
@@ -17,40 +16,31 @@ async function main() {
 
     const provider = new ethers.providers.JsonRpcProvider();
 
-    // await hre.network.provider.request({
-    //     method: "hardhat_impersonateAccount",
-    //     params: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]
-    // })
+    // impersonating vitalik's account
     await provider.send("hardhat_impersonateAccount", [
-        "0x0ec9e8aA56E0425B60DEe347c8EFbaD959579D0F",
+        "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B",
     ]);
 
     const signer = await provider.getSigner(
-        "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+        "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B"
     );
 
+    // uniswap contract
     const uniToken = new ethers.Contract(
         "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
         abi,
         signer
     );
 
+    // transferring ETH 
     const tx = await uniToken.transfer(
         "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-        BigNumber.from("11000000000000000000000000")
+        BigNumber.from("1100000000000000000")
     );
 
     console.log(tx);
-
-    console.log(
-        (
-            await uniToken.balanceOf(
-                "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
-            )
-        ).toString()
-    );
+    console.log('Balance: ',(await uniToken.balanceOf("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")).toString());
 }
-
 
 main()
     .then(() => process.exit(0))

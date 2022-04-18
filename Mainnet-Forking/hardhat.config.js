@@ -2,6 +2,9 @@
  * @type import('hardhat/config').HardhatUserConfig
  */
 
+//  require('@nomiclabs/hardhat-ethers');
+ require('dotenv').config();
+
 const {ALCHEMY_KEY} = process.env
 module.exports = {
   solidity: "0.7.3",
