@@ -1,4 +1,4 @@
-## Commands
+## Commands to run the script
 
 Running mainnet fork: `npx hardhat node`
 
