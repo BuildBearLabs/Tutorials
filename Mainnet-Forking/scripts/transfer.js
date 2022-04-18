@@ -26,7 +26,7 @@ async function main() {
 
     // uniswap contract
     const uniToken = new ethers.Contract(
-       uniToken_address,
+        uniToken_address,
         abi,
         signer
     );
@@ -37,11 +37,11 @@ async function main() {
         my_address,
         ethers.BigNumber.from(vitalik_Balance)
     );
-    
-    if((await uniToken.balanceOf(my_address) == vitalik_Balance)) {
+
+    if ((await uniToken.balanceOf(my_address) == vitalik_Balance)) {
         console.log(`Wohoo!! You now have ${ethers.utils.formatEther(vitalik_Balance)} UNI Tokens!`)
     }
-    
+
 }
 
 main()
