@@ -14,7 +14,6 @@ module.exports = {
             url:`https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_KEY}`,
             blockNumber: 12505760,
         },
-        chainId: 1,
     },
 },
 };
