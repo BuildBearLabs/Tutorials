@@ -19,7 +19,6 @@ describe('testSwap', function (accounts) {
 
     it("should swap", async () => {
         const Uniswap_swap = await ethers.getContractFactory("testSwap")
-        const SwapTest = await Uniswap_swap.deploy()
-        await SwapTest.deployed()
+        
     })
 })
