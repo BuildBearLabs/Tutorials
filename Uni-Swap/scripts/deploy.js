@@ -5,7 +5,7 @@ async function main() {
   const contract = await factory.deploy();
   await contract.deployed();
   // The address the Contract WILL have once mined
-  console.log("testSwap deployed to: ", contract.address);
+  console.log("Contract deployed to: ", contract.address);
 }
 
 main()
