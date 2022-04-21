@@ -7,7 +7,7 @@
  
  const { ALCHEMY_KEY } = process.env
 module.exports = {
-  solidity: "0.7.3",
+  solidity: "0.8.4",
   networks: {
     hardhat: {
         forking: {
