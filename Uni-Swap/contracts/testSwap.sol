@@ -10,7 +10,7 @@ contract testSwap {
     address private constant UNISWAP_V2_ROUTER =
         0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
 
-    //address of WETH token- This is needed because some times it is better to trade through WETH.
+    //address of WETH token- its better to trade through WETH.
     address private constant WETH = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
 
     // swap function
@@ -21,7 +21,7 @@ contract testSwap {
         uint256 _amountOutMin,
         address _to
     ) external {
-        // transfer the amount in tokens form msg.sender to this contract
+        // transfer the amount in tokens from msg.sender to this contract
         IERC20(_tokenIn).transferFrom(msg.sender, address(this), _amountIn);
 
         //by calling IERC20 approve you allow the uniswap contract to spend the tokens in this contract
