@@ -31,15 +31,15 @@ describe("Test Swap", function () {
             params: [DAIHolder],
         });
         const impersonateSigner = await ethers.getSigner(DAIHolder);
-        
+
         // const TokenIn = await IERC20ABI.at(TOKEN_IN);
         // const TokenOut = await IERC20ABI.at(TOKEN_OUT);
         // await TokenIn.approve(TestSwapContract.address, AMOUNT_IN, { from: impersonateSigner });
         await TOKEN_IN.connect(impersonateSigner).approve(TestSwapContract.address, AMOUNT_IN)
 
         await TestSwapContract.swap(
-            TokenIn.address,
-            TokenOut.address,
+            DAIAddress,
+            WBTC,
             AMOUNT_IN,
             AMOUNT_OUT_MIN,
             TO,
