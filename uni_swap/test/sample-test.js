@@ -13,14 +13,13 @@ describe("Test Swap", function () {
     const DAIHolder = "0x5d38b4e4783e34e2301a2a36c39a03c45798c4dd";
     let TestSwapContract;
 
-    const AMOUNT_IN = 100; // 100,000 DAI
+    const AMOUNT_IN = 1000000; // 100,000 DAI
     const AMOUNT_OUT_MIN = 1;
     const TOKEN_IN = DAIAddress;
     const TOKEN_OUT = WBTC;
     const TO = my_address;
 
     beforeEach(async () => {
-        console.log("BE")
         const TestSwapFactory = await ethers.getContractFactory("testSwap");
         TestSwapContract = await TestSwapFactory.deploy();
         await TestSwapContract.deployed();
@@ -39,7 +38,7 @@ describe("Test Swap", function () {
         await TestSwapContract.connect(impersonateSigner).swap(
             TOKEN_IN,
             TOKEN_OUT,
-            AMOUNT_IN,
+            10005,
             AMOUNT_OUT_MIN,
             TO,
         )
