@@ -35,7 +35,8 @@ describe("Test Swap", function () {
         // const TokenIn = await IERC20ABI.at(TOKEN_IN);
         // const TokenOut = await IERC20ABI.at(TOKEN_OUT);
         // await TokenIn.approve(TestSwapContract.address, AMOUNT_IN, { from: impersonateSigner });
-        await TOKEN_IN.connect(impersonateSigner).approve(TestSwapContract.address, AMOUNT_IN)
+        const TOKEN_INCONTRACT = new ethers.Contract( TOKEN_IN , abi , signerOrProvider )  // add abi and signer
+        await TOKEN_INCONTRACT.connect(impersonateSigner).approve(TestSwapContract.address, AMOUNT_IN)
 
         await TestSwapContract.swap(
             DAIAddress,
