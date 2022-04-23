@@ -38,7 +38,7 @@ describe("Test Swap", function () {
         await TestSwapContract.connect(impersonateSigner).swap(
             TOKEN_IN,
             TOKEN_OUT,
-            10005,
+            1000000,
             AMOUNT_OUT_MIN,
             TO,
         )

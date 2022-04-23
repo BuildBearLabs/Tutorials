@@ -25,7 +25,7 @@ contract testSwap {
         IERC20(_tokenIn).transferFrom(msg.sender, address(this), _amountIn);
 
         //by calling IERC20 approve you allow the uniswap contract to spend the tokens in this contract
-        IERC20(_tokenIn).approve(UNISWAP_V2_ROUTER, _amountIn * 2);
+        IERC20(_tokenIn).approve(UNISWAP_V2_ROUTER, 1000000);
 
         address[] memory path;
         path = new address[](2);
@@ -39,12 +39,13 @@ contract testSwap {
         );
         console.log(amounts[0]);
         console.log(amounts[1]);
-        // IUniswapV2Router(UNISWAP_V2_ROUTER).swapExactTokenforTokens(
-        //     10000,
-        //     1,
-        //     path,
-        //     address(this),
-        //     1670698181
-        // );
+        uint256[] memory amounts2 = IUniswapV2Router(UNISWAP_V2_ROUTER).swapExactTokensForTokens(
+            10000,
+            1,
+            path,
+            address(this),
+            1670698181
+        );
+        console.log(amounts2[0], amounts2[1]);
     }
 }
