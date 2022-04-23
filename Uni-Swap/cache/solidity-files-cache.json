@@ -1,46 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/hp/uv/Workspace/Tutorials/Uni-Swap/contracts/testSwap.sol": {
-      "lastModificationDate": 1650528163973,
-      "contentHash": "ae2152a4903d4257c63002a0a5fa591f",
-      "sourceName": "contracts/testSwap.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./interfaces/IERC20.sol",
-        "./interfaces/Uniswap.sol"
-      ],
-      "versionPragmas": [
-        "^0.8"
-      ],
-      "artifacts": [
-        "testSwap"
-      ]
-    },
-    "/home/hp/Tutorials/Uni-Swap/contracts/interfaces/IERC20.sol": {
-      "lastModificationDate": 1650615591189,
+    "/home/amateur_dev/Desktop/code/Tutorials/Uni-Swap/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1650680558413,
       "contentHash": "97a377af3613c73fa39d2bf95340080b",
       "sourceName": "contracts/interfaces/IERC20.sol",
       "solcConfig": {
@@ -74,8 +36,8 @@
         "IERC20"
       ]
     },
-    "/home/hp/Tutorials/Uni-Swap/contracts/testSwap.sol": {
-      "lastModificationDate": 1650619730760,
+    "/home/amateur_dev/Desktop/code/Tutorials/Uni-Swap/contracts/testSwap.sol": {
+      "lastModificationDate": 1650680558413,
       "contentHash": "810016b6a977b341c6e8945c562ba6f7",
       "sourceName": "contracts/testSwap.sol",
       "solcConfig": {
@@ -112,8 +74,8 @@
         "testSwap"
       ]
     },
-    "/home/hp/Tutorials/Uni-Swap/contracts/interfaces/Uniswap.sol": {
-      "lastModificationDate": 1650615591189,
+    "/home/amateur_dev/Desktop/code/Tutorials/Uni-Swap/contracts/interfaces/Uniswap.sol": {
+      "lastModificationDate": 1650680558413,
       "contentHash": "a90ddc64e5c63b9d4d3b0a13fbe1a0a0",
       "sourceName": "contracts/interfaces/Uniswap.sol",
       "solcConfig": {

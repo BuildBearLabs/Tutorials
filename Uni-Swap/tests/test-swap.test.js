@@ -4,7 +4,9 @@ const { ethers } = require("hardhat");
 
 const IERC20ABI = ("../artifacts/contracts/interfaces/IERC20.sol/IERC20.json");
 const TOKEN_IN_ABI = require("@uniswap/v2-core/build/ERC20.json").abi;
+
 let TestSwapContract;
+
 describe("Test Swap", function () {
 
     const DAIAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
@@ -20,12 +22,14 @@ describe("Test Swap", function () {
     const TO = my_address;
 
     beforeEach(async () => {
+        console.log("BE")
         const TestSwapFactory = await ethers.getContractFactory("testSwap");
         TestSwapContract = await TestSwapFactory.deploy();
         await TestSwapContract.deployed();
     })
 
     it("should swap", async () => {
+        console.log("HIs");
         // impersonate acc
         await hre.network.provider.request({
             method: "hardhat_impersonateAccount",
@@ -47,6 +51,7 @@ describe("Test Swap", function () {
             AMOUNT_OUT_MIN,
             TO,
         )
+        expect(0).to.equal(0);
         // console.log(`out ${await TokenOut.balanceOf(TO)}`);
 // console.log()
     })
