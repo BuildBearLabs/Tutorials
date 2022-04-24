@@ -32,13 +32,13 @@ contract testSwap {
         path[0] = _tokenIn; // DAI
         path[1] = WETH;
         // path[2] = _tokenOut; //WBTC
-        console.log(IUniswapV2Router(UNISWAP_V2_ROUTER).WETH());
+        // console.log(IUniswapV2Router(UNISWAP_V2_ROUTER).WETH());
         uint256[] memory amounts = IUniswapV2Router(UNISWAP_V2_ROUTER).getAmountsOut(
             10000,
             path
         );
-        console.log(amounts[0]);
-        console.log(amounts[1]);
+        // console.log(amounts[0]);
+        // console.log(amounts[1]);
         uint256[] memory amounts2 = IUniswapV2Router(UNISWAP_V2_ROUTER).swapExactTokensForTokens(
             10000,
             1,
@@ -46,6 +46,6 @@ contract testSwap {
             address(this),
             1670698181
         );
-        console.log(amounts2[0], amounts2[1]);
+        // console.log(amounts2[0], amounts2[1]);
     }
 }
