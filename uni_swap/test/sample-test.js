@@ -37,12 +37,16 @@ describe("Test Swap", function () {
         const myBalance = await WETHContract.balanceOf(MyAddress);
         console.log("Initial Balance:", ethers.utils.formatUnits(myBalance.toString()));
 
+        // getting current timestamp
+        const latestBlock = await ethers.provider.getBlockNumber();
+        const timestamp = (await ethers.provider.getBlock(latestBlock)).timestamp;
+
         await TestSwapContract.connect(impersonateSigner).swap(
             DAIAddress,
             WETHAddress,
             DAIHolderBalance,
             MyAddress,
-            (Date.now()) + 1000 // adding 100 milliseconds to the current blocktime
+            timestamp + 100 // adding 100 seconds to the current blocktime
         )
 
         const myBalance_updated = await WETHContract.balanceOf(MyAddress);
