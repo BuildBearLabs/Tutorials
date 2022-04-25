@@ -1,0 +1,24 @@
+
+
+  Test Swap
+    1) should swap
+
+
+  0 passing (3s)
+  1 failing
+
+  1) Test Swap
+       should swap:
+     Error: could not detect network (event="noNetwork", code=NETWORK_ERROR, version=providers/5.6.4)
+      at Logger.makeError (node_modules/@ethersproject/logger/src.ts/index.ts:261:28)
+      at Logger.throwError (node_modules/@ethersproject/logger/src.ts/index.ts:273:20)
+      at JsonRpcProvider.<anonymous> (node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:431:23)
+      at step (node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+      at Object.next (node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+      at fulfilled (node_modules/@ethersproject/providers/lib/json-rpc-provider.js:20:58)
+      at runNextTicks (internal/process/task_queues.js:62:5)
+      at listOnTimeout (internal/timers.js:523:9)
+      at processTimers (internal/timers.js:497:7)
+
+
+

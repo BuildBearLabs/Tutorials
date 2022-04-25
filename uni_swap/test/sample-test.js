@@ -30,23 +30,23 @@ describe("Test Swap", function () {
         // DAI contract
         const DAIContract = new ethers.Contract(DAIAddress, ERC20ABI, impersonateSigner)
         const DAIHolderBalance = await DAIContract.balanceOf(impersonateSigner.address)
-        await DAIContract.approve(TestSwapContract.address, DaiHolderBalance)
+        await DAIContract.approve(TestSwapContract.address, DAIHolderBalance)
         
         // getting my inital DAI balance
-        const myBalance = await DAIContract.balanceOf(MyAddress);
-
-        // getting current blocktime
-        const blockTimestamp = (await hre.network.provider.getBlock()).timestamp;
+        const WETHContract = new ethers.Contract(WETHAddress, ERC20ABI, impersonateSigner)
+        const myBalance = await WETHContract.balanceOf(MyAddress);
+        console.log("1", myBalance.toString());
 
         await TestSwapContract.connect(impersonateSigner).swap(
             DAIAddress,
             WETHAddress,
             DAIHolderBalance,
             MyAddress,
-            blockTimestamp + 100 // adding 100 milliseconds to the current blocktime
+            (Date.now()) + 1000 // adding 100 milliseconds to the current blocktime
         )
         
-        const myBalance_updated = await DAIContract.balanceOf(MyAddress);
+        const myBalance_updated = await WETHContract.balanceOf(MyAddress);
+        console.log("2", myBalance_updated.toString());
         const DAIHolderBalance_updated = await DAIContract.balanceOf(impersonateSigner.address);
         expect(DAIHolderBalance_updated.eq(BigNumber.from(0))).to.be.true
         expect(myBalance_updated.gt(myBalance)).to.be.true;
