@@ -23,7 +23,6 @@ contract testSwap {
         uint256 _amountIn,
         uint256 _amountOutMin,
         address _to
-        // uint256 _deadline
       
     ) external {
         // transfer the amount in tokens from msg.sender to this contract
@@ -48,7 +47,6 @@ contract testSwap {
             path,
             address(this),
             block.timestamp
-            // 1670698181
         );
     }
 }

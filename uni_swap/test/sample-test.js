@@ -47,6 +47,9 @@ describe("Test Swap", function () {
         const DaiAddressContract = new ethers.Contract(DAIAddress, ERC20ABI, impersonateSigner)
         const TokenInBal = await DaiAddressContract.balanceOf(impersonateSigner.address)
         await DaiAddressContract.approve(TestSwapContract.address, AMOUNT_IN)
+        const SwapBal_Init = await DaiAddressContract.balanceOf(TO);
+        const IntSwap = ethers.utils.formatUnits(SwapBal_Init)
+        console.log(IntSwap, "initially")
 
         await TestSwapContract.connect(impersonateSigner).swap(
             DAIAddress,
