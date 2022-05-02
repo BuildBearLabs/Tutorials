@@ -22,7 +22,7 @@ contract flashSwap is IUniswapV2Callee {
 
     event Log(string message, uint256 val);
 
-    // we'll call this function to call to call flashloan on uniswap
+    // we'll call this function to call to call FLASHLOAN on uniswap
     function testFlashSwap(address _tokenBorrow, uint256 _amount) external {
         // check the pair contract for token borrow and weth exists
         address pair = IUniswapV2Factory(UniswapV2Factory).getPair(
@@ -31,10 +31,11 @@ contract flashSwap is IUniswapV2Callee {
         );
         require(pair != address(0), "!pair");
 
-        // right now we dont know token0 and token1 belongs o which token
+        // right now we dont know tokenborrow belongs to which token
         address token0 = IUniswapV2Pair(pair).token0();
         address token1 = IUniswapV2Pair(pair).token1();
 
+        // as a result, either amount0out will be equal to 0 or amount1out will be
         uint256 amount0Out = _tokenBorrow == token0 ? _amount : 0;
         uint256 amount1Out = _tokenBorrow == token1 ? _amount : 0;
 
@@ -42,9 +43,10 @@ contract flashSwap is IUniswapV2Callee {
         bytes memory data = abi.encode(_tokenBorrow, _amount);
         // last parameter tells whether its a normal swap or a flash swap
         IUniswapV2Pair(pair).swap(amount0Out, amount1Out, address(this), data);
+        // adding data triggers a flashloan
     }
 
-    // in return uniswap will return with this function
+    // in return of flashloan call, uniswap will return with this function
     // providing us the token borrow and the amount
     // we also have to repay the borrowed amt plus some fees
     function uniswapV2Call(
@@ -60,6 +62,7 @@ contract flashSwap is IUniswapV2Callee {
         // call uniswapv2factory to getpair 
         address pair = IUniswapV2Factory(UniswapV2Factory).getPair(token0, token1);
         require(msg.sender == pair, "!pair");
+        // check sender holds the address who initiated the flash loans
         require(_sender == address(this), "!sender");
 
         (address tokenBorrow, uint amount) = abi.decode(_data, (address, uint));
