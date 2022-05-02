@@ -10,9 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@openzeppelin/contracts": "^4.6.0"
   },
   "devDependencies": {
+    "dotenv": "^16.0.0",
     "hardhat": "^2.9.3"
   }
 }

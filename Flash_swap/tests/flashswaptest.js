@@ -16,11 +16,9 @@ describe("Flash Swap Test", function () {
         const TestFlashSwapFactory = await ethers.getContractFactory("testFlashSwap");
         TestFlashSwapContract = await TestFlashSwapFactory.deploy();
         await TestFlashSwapContract.deployed();
-    });
 
-    it("should pass", async () => {
-        // impersonate acc
-        await hre.network.provider.request({
+         // impersonate acc
+         await hre.network.provider.request({
             method: "hardhat_impersonateAccount",
             params: [USDCHolder],
         });
@@ -29,5 +27,10 @@ describe("Flash Swap Test", function () {
         // Token Borrowed
         const USDCContract = new ethers.Contract(USDCAddress, ERC20ABI, impersonateSigner)
         // const USDCHolderBalance = await USDCContract.balanceOf(impersonateSigner.address)
+    });
+
+    it("Flash swap", async () => {
+       const tx = await TestFlashSwapContract.testFlashSwap(USDCContract.address, borrowAmount, {from: USDCHolder})
+       console.log(tx)
     })
 })
