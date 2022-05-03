@@ -20,7 +20,6 @@ contract flashSwap is IUniswapV2Callee {
     address private constant UniswapV2Factory =
         0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f;
 
-    event Log(string message, uint256 val);
 
     // we'll call this function to call to call FLASHLOAN on uniswap
     function testFlashSwap(address _tokenBorrow, uint256 _amount) external {
@@ -70,12 +69,6 @@ contract flashSwap is IUniswapV2Callee {
         // 0.3% fees
         uint fee = ((amount * 3) / 997) + 1;
         uint amountToRepay = amount + fee;
-
-        emit Log(("amount"), amount);
-        emit Log("amount0", _amount0);
-        emit Log("amount1", _amount1);
-        emit Log("fee", fee);
-        emit Log("amount to repay", amountToRepay);
 
         IERC20(tokenBorrow).transfer(pair, amountToRepay);
     }
