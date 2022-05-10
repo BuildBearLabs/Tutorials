@@ -1,0 +1,18 @@
+{
+    "name": "Tyrion Lannister",
+    "description": "I have to disagree. Death is so final, yet life is full of possibilities.",
+    "image": "https://gateway.pinata.cloud/ipfs/QmVWFHGYs7ihtTVeprvy1XxwJ2TzxFK9tbWagnYjTc5Tfm",
+    "attributes": [
+        {
+            "trait_type": "Eye color",
+            "value": "Brown"
+        }, 
+        {
+            "trait_type": "Hair color",
+            "value": "Blonde"
+        }, {
+            "trait_type": "House Name",
+            "value": "Lannisters"
+        }
+    ]
+}

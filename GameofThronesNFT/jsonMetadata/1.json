@@ -1,0 +1,18 @@
+{
+    "name": "Jon Snow",
+    "description": "I know Nothing!",
+    "image": "https://gateway.pinata.cloud/ipfs/QmZbEETnL21Mq9ry5MmQ5mrzzCQALjhxwHZxN8Y5SZWyLM",
+    "attributes": [
+        {
+            "trait_type": "Eye color",
+            "value": "Black"
+        }, 
+        {
+            "trait_type": "Hair color",
+            "value": "Black"
+        }, {
+            "trait_type": "House Name",
+            "value": "Starks / Targaryens"
+        }
+    ]
+}

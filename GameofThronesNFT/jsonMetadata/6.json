@@ -1,0 +1,18 @@
+{
+    "name": "Arya Stark",
+    "description": "Not Today!!!",
+    "image": "https://gateway.pinata.cloud/ipfs/QmdzZWdTegjsMXhr2bZao2sxhDm2ATqhzDzEcpuS3uzwqa",
+    "attributes": [
+        {
+            "trait_type": "Eye color",
+            "value": "Brown"
+        }, 
+        {
+            "trait_type": "Hair color",
+            "value": "Dark Brown"
+        }, {
+            "trait_type": "House Name",
+            "value": "Starks"
+        }
+    ]
+}
