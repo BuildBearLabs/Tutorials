@@ -36,7 +36,7 @@ contract testSwap {
             path
         );
      
-        uint256[] memory amountsReceived = IUniswapV2Router(UNISWAP_V2_ROUTER).swapExactTokensForTokens(
+        IUniswapV2Router(UNISWAP_V2_ROUTER).swapExactTokensForTokens(
             amountsExpected[0],
             (amountsExpected[1]*990)/1000, // accpeting a slippage of 1%
             path,
