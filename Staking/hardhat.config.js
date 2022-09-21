@@ -10,7 +10,7 @@ module.exports = {
     hardhat: {},
     buildbear: {
       url: 'https://backend.buildbear.io/node/thirsty-einstein-e6514b',
-      accounts: ['fb65ea61c393dc095494126d2def8a1551ece1045c6780e488336e8175da1f36']
+      accounts: [process.env.privatekey]
     }
   }
 };
