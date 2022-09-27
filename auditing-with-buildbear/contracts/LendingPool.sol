@@ -2,12 +2,12 @@
 
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/utils/Address.sol";
-
+import "@openzeppelin/contracts/utils/ReentrancyGaurd.sol";
 interface IFlashLoanEtherReceiver {
     function execute() external payable;
 }
 
-contract LenderPool {
+contract LenderPool is ReentrancyGaurd {
     using Address for address payable;
 
     mapping (address => uint256) private balances;
@@ -16,10 +16,11 @@ contract LenderPool {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw() external {
+    function withdraw() nonReentrant() external {
         uint256 amountToWithdraw = balances[msg.sender];
+        balances[msg.sender] = 0;
         payable(msg.sender).sendValue(amountToWithdraw);
-			  balances[msg.sender] = 0;
+			
     }
 
     function flashLoan(uint256 amount) external {

