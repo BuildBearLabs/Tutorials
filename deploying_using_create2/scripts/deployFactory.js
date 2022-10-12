@@ -9,6 +9,7 @@ const main = async () => {
   const addressObject = {
     factory: factoryAddress
   }
+  console.log("Factory has been deployed at ", factoryAddress);
   await fs.writeFile('./addresses/address.json', JSON.stringify(addressObject));
 }
 
