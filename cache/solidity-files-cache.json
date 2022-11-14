@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/amareshsahoo/Desktop/hardhat/contracts/hotelBooking.sol": {
+      "lastModificationDate": 1668248568076,
+      "contentHash": "a2df90e72d9c4df2de108565f5c14e7c",
+      "sourceName": "contracts/hotelBooking.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.14"
+      ],
+      "artifacts": [
+        "hotelBooking"
+      ]
+    }
+  }
+}
