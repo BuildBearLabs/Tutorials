@@ -1,0 +1,2 @@
+The contract creates a multi-signature wallet which has been given 3 owner addresses and needs the approval of at least 2 to execute a transaction.
+It is a 2-of-3 type wallet.
