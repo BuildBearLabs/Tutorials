@@ -1,27 +1,24 @@
-const { ethers, BigNumber } = require("ethers");
+const hre = require("hardhat");
+const { ethers } = require("ethers");
 
-const DAITokenAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
-
+const deployedContractAddress = "0x563e58726B6eDa7bfC1e13F645af4D1C11DAC702";
+const value = 1000;
+const nonce = 0;
+const deadline = "2661766724";
 
 async function main() {
-  const buildbearProvider=new ethers.providers.JsonRpcProvider("https://ethindia.backend.buildbear.io/node/Illegal_Luminara_Unduli_f158cbf5")
+  const signers = await hre.ethers.getSigners();
+  const spenderSigner = signers[0];
+  const ownerSigner = signers[1];
+  console.log(signers);
 
-  const myWallet = new ethers.Signer(process.env.MY_PRIVATEKEY);
-  const approvedAccount= new ethers.Signer(process.env.APPROVED_ACCOUNT_PRIVATEKEY);
-  const relayer= new ethers.Signer(process.env.RELAYER_PRIVATEKEY);
+  
+  const ERC20Contract = await hre.ethers.getContractAt("token", deployedContractAddress, spenderSigner);
 
   const domainName = "BuildBear" // put your token name 
   const domainVersion = "1" 
-  const chainId = 1 // this is the chain ID of the chain you are using
+  const chainId = 8430 // this is the chain ID of the chain you are using
   const contractAddress = deployedContractAddress
-
-  const DAITokenConrtact = await hre.ethers.getContractAt("token", DAITokenAddress, deployerSigner);
-  const nonce = await DAITokenConrtact.nonces(myWallet.address)
-  const currentBlockTimeStamp = (await hre.ethers.provider.getBlock("latest")).timestamp;
-  const expiry = (BigNumber.from(currentBlockTimeStamp).add(BigNumber.from(100)));
-  const allowed = true;
-
-  // pending from here
 
   const domain = {
     name: domainName,
@@ -64,7 +61,6 @@ async function main() {
   }
 
   const signature = await ownerSigner._signTypedData(domain, types, values);
-  console.log(signature);
 
   const splitSig = (signature) => {
     // splits the signature to r, s, and v values.

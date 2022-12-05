@@ -9,7 +9,6 @@ module.exports = {
   networks: {
     buildbear: {
       url: process.env.BUILDBEAR_TESTNET,
-      accounts: [process.env.ACCOUNT1, process.env.ACCOUNT2]
     },
   }
 };
