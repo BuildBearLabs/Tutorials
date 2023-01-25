@@ -3,15 +3,13 @@
 // It is based on the Aave flash loan example contract, but has been modified to use the latest version of the Aave contracts.
 // This has to be deployed and tested from the Remix IDE.
 
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@aave/core-v3/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-
+import "hardhat/console.sol";
 
 contract SimpleFlashLoan is FlashLoanSimpleReceiverBase {
   using SafeMath for uint;
@@ -48,6 +46,7 @@ contract SimpleFlashLoan is FlashLoanSimpleReceiverBase {
     emit Log(asset, IERC20(asset).balanceOf(address(this)));
     
     uint amountOwing = amount.add(premium);
+    console.log("amountOwing: %s", amountOwing);
     IERC20(asset).approve(address(POOL), amountOwing);
 
     return true;
