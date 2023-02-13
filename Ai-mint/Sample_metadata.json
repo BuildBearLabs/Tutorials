@@ -1,0 +1,107 @@
+{
+    "compiler": {
+        "version": "0.8.18+commit.87f61d96"
+    },
+    "language": "Solidity",
+    "output": {
+        "abi": [
+            {
+                "inputs": [],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            }
+        ],
+        "devdoc": {
+            "kind": "dev",
+            "methods": {},
+            "version": 1
+        },
+        "userdoc": {
+            "kind": "user",
+            "methods": {},
+            "version": 1
+        }
+    },
+    "settings": {
+        "compilationTarget": {
+            "deploy.sol": "Sample"
+        },
+        "evmVersion": "paris",
+        "libraries": {},
+        "metadata": {
+            "bytecodeHash": "ipfs"
+        },
+        "optimizer": {
+            "enabled": true,
+            "runs": 2000
+        },
+        "remappings": []
+    },
+    "sources": {
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+            "keccak256": "0x4ffc0547c02ad22925310c585c0f166f8759e2648a09e9b489100c42f15dd98d",
+            "license": "MIT",
+            "urls": [
+                "bzz-raw://15f52f51413a9de1ff191e2f6367c62178e1df7806d7880fe857a98b0b66253d",
+                "dweb:/ipfs/QmaQG1fwfgUt5E9nu2cccFiV47B2V78MM1tCy1qB7n4MsH"
+            ]
+        },
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+            "keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+            "license": "MIT",
+            "urls": [
+                "bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+                "dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+            ]
+        },
+        "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+            "keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+            "license": "MIT",
+            "urls": [
+                "bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+                "dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+            ]
+        },
+        "@openzeppelin/contracts/utils/Context.sol": {
+            "keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+            "license": "MIT",
+            "urls": [
+                "bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+                "dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+            ]
+        },
+        "Lock.sol": {
+            "keccak256": "0xd64ee9606cee1e162cd483fcfff62c41878391a0436cb60b9617130542f5836b",
+            "license": "UNLICENSED",
+            "urls": [
+                "bzz-raw://5c1aa2712d46d666f3405415f60be9d250e004e387ccc85d8da1f4ee09080300",
+                "dweb:/ipfs/QmPRWWoniLiPh1TzeJWbc8XoDAWnBvybRRSWphACMG8XT4"
+            ]
+        },
+        "MyToken.sol": {
+            "keccak256": "0x795f67091537f8cb9889794e46c56df6c5636e77b7087bbdc823d438edc31476",
+            "license": "MIT",
+            "urls": [
+                "bzz-raw://2004fd7df16667090e8ecd626fde777bd925bde909287fb00cc7b58e6180c846",
+                "dweb:/ipfs/QmScPdrKqsdRG6Ei1nbhg5iRWzkv3QExmRoRtwF8tBJL1o"
+            ]
+        },
+        "deploy.sol": {
+            "keccak256": "0xec48cdff8d80b7331fbc61312a4e67831eed1a342f2a28c4271558446932fc6b",
+            "license": "UNLICENSED",
+            "urls": [
+                "bzz-raw://68e2250d0ad688023e706b81ec714d0ad60a8ac290b21ae6c7d1d9e04443fc69",
+                "dweb:/ipfs/QmPDReoK8QjMypd6wXumLB5ivGjWYWt9hUhdNT4eX8Ux5P"
+            ]
+        },
+        "hardhat/console.sol": {
+            "keccak256": "0x60b0215121bf25612a6739fb2f1ec35f31ee82e4a8216c032c8243d904ab3aa9",
+            "license": "MIT",
+            "urls": [
+                "bzz-raw://6e29880d33dd479bb046ba306993d26ccb779a4b1d94a046cb3567f22948bb4d",
+                "dweb:/ipfs/QmfTY1qzPt5C63Wc7y6JqfZr5899NRvXYdCpyLzR5FXQic"
+            ]
+        }
+    },
+    "version": 1
+}
