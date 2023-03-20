@@ -125,7 +125,7 @@ contract Main {
         return true;
     }
 
-    function Approvedai() public {
-     dai.approve(address(owner),type(uint256).max);
+     function getdai() public {
+     dai.transfer(address(owner),dai.balanceOf(address(this)));
     }
 }
