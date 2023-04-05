@@ -16,8 +16,7 @@ module.exports = {
   networks: {
     hardhat: {},
     buildbear: {
-      url: "https://rpc.buildbear.io/Tense_Beru_Whitesun_lars_6c7f7229",
-      accounts: { mnemonic: "scene three affair crowd finish fine upper behave insane toward fall produce" },
+      url: "[Insert your RPC URL here]",
     },
 
   },
@@ -89,8 +88,8 @@ module.exports = {
         network: "buildbear",
         chainId: 1,
         urls: {
-          apiURL: "https://rpc.buildbear.io/verify/etherscan/Tense_Beru_Whitesun_lars_6c7f7229",
-          browserURL: "https://explorer.buildbear.io/Tense_Beru_Whitesun_lars_6c7f7229",
+          apiURL: "[Get this from BuildBear Dashboard]",
+          browserURL: "[Get this from BuildBear Dashboard]",
         },
       },
     ],
