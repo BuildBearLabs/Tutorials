@@ -1,4 +1,4 @@
-# This repository, contains TestScripts and deployment scripts for following smart contracts:
+# This repository, contains Test and Deployment scripts for following Smart Contracts:
 - GameItem
 - Greeter
 - Simplestorage
