@@ -78,21 +78,7 @@ module.exports = {
       },
     ],
   },
-
-  etherscan: {
-    apiKey: {
-      buildbear: "test1",
-    },
-    customChains: [
-      {
-        network: "buildbear",
-        chainId: 1,
-        urls: {
-          apiURL: "[Get this from BuildBear Dashboard]",
-          browserURL: "[Get this from BuildBear Dashboard]",
-        },
-      },
-    ],
+  etherscan: { //Insert the values from the buildbear dashboard
   },
   paths: {
     sources: './contracts',
