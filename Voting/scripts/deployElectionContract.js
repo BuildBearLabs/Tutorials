@@ -8,7 +8,6 @@ const hre = require("hardhat");
 
 async function main() {
 
-
   const Maincontract = await hre.ethers.getContractFactory("MainContract");
   const maincontract = await Maincontract.deploy();
   await maincontract.deployed();
