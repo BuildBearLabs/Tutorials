@@ -1,18 +1,22 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
 const hre = require("hardhat");
+// importing the json file from ../deployments/buildbear/MainContract.json
+const mainContractAddress = require("../deployments/buildbear/MainContract.json").address;
 
 async function main() {
+  const maincontract = await hre.ethers.getContractAt("MainContract", mainContractAddress);
+  const newElectionTransaction = await maincontract.createElection(["class leader election", "to select the class leader"], ["Chandan", "Rahul", "Micky"]);
+  const events =  (await newElectionTransaction.wait()).events;
+  console.log("Election created");
+  // read the events of the transaction and fetch the election address
+  console.log(events[0].args);
+  const id = String(events[0].args[0]);
+  const electionAddress = await maincontract.Elections(id);
 
-  const Maincontract = await hre.ethers.getContractFactory("MainContract");
-  const maincontract = await Maincontract.deploy();
-  await maincontract.deployed();
   await run(`verify:verify`, {
-    address: maincontract.address,
+    address: electionAddress,
+    constructorArguments: [
+      ["class leader election", "to select the class leader"], ["Chandan", "Rahul", "Micky"]
+    ],
   });
 
 }

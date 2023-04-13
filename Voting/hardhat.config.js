@@ -24,8 +24,8 @@ module.exports = {
         chainId: 1,
         urls: {
           apiURL:
-            "https://rpc.buildbear.io/verify/etherscan/Previous_Wedge_Antilles_6d9263d2",
-          browserURL: "https://explorer.buildbear.io/Previous_Wedge_Antilles_6d9263d2",
+            "https://rpc.dev.buildbear.io/verify/etherscan/Previous_Wedge_Antilles_6d9263d2",
+          browserURL: "https://explorer.dev.buildbear.io/Previous_Wedge_Antilles_6d9263d2",
         },
       },
     ],

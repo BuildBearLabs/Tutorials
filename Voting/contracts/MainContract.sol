@@ -6,12 +6,16 @@ contract MainContract {
     uint public electionId = 0;
     mapping(uint => address) public Elections;
 
+    event ElectionCreated(uint id);
+
     function createElection(
         string[] memory _nda,
         string[] memory _candidates
-    ) public {
+    ) public returns(uint id) {
         Election election = new Election(_nda, _candidates);
         Elections[electionId] = address(election);
-        electionId++;
+        id = electionId++;
+        emit ElectionCreated(id);
+        return id;
     }
 }
