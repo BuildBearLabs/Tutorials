@@ -1,16 +1,17 @@
-# This repository, contains TestScripts and deployment scripts for following contracts:
-- Gameitem
+# This repository, contains Test and Deployment scripts for following Smart Contracts:
+- GameItem
 - Greeter
 - Simplestorage
-- token
+- Token
 - Artwork
+- MultiSigWallet
+- ERC1155
 
 ### To start using this repository, simply clone it or download the zip file. Once downloaded, run `npm install` to install all the necessary packages.
 
 ### To get your own Testnet head [builbear](https://buildbear.io/)
 - Create a Testnet on BuildBear
 - Copy the RPC and explorer link from the Dashboard and add to the hardhat.config.js file
-- Copy the mnemonic from the Dashboard and add in Hardhat.config.js file 
 
 ### To deploy all the contracts, run `npx hardhat run scripts/deployAll.js --network buildbear`.
 
