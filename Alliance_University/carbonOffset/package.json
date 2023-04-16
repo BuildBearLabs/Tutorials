@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "hardhat-deploy": "^0.11.25"
   },
   "devDependencies": {
-    "@nomiclabs/hardhat-etherscan": "^3.1.7"
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "mocha": "^10.2.0"
   }
 }
