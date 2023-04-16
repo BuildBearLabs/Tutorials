@@ -11,12 +11,12 @@ contract regulator is ERC20PresetMinterPauser {
 
     function mint(address to, uint256 amount) public virtual override{
         require(hasRole(MINTER_ROLE, _msgSender()), "ERC20PresetMinterPauser: must have minter role to mint");
-        super._mint(to, amount);
+        super._mint(to, amount* (10**18));
     }   
 
     function burn(address from,uint256 amount) public virtual {
         require(hasRole(MINTER_ROLE, _msgSender()), "ERC20PresetMinterPauser: must have burner role to burn");
-        super._burn(from, amount);
+        super._burn(from, amount* (10**18));
     }
 
     function pause() public virtual override {
