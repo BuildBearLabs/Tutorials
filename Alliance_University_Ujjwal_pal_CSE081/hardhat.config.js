@@ -11,15 +11,6 @@ require('@nomiclabs/hardhat-etherscan');
 
 
 module.exports = {
-  defaultNetwork: 'buildbear',
-
-  networks: {
-    hardhat: {},
-    buildbear: {
-      url: "https://rpc.buildbear.io/Critical_Mon_Mothma_150e5c8a"
-    }
-
-  },
   solidity: {
     compilers: [
       {
@@ -79,21 +70,7 @@ module.exports = {
     ],
   },
 
-  etherscan: {
-    apiKey: {
-      buildbear: "test1",
-    },
-    customChains: [
-      {
-        network: "buildbear",
-        chainId: 8658,
-        urls: {
-          apiURL: "https://rpc.buildbear.io/verify/etherscan/Critical_Mon_Mothma_150e5c8a",
-          browserURL: "https://explorer.buildbear.io/Critical_Mon_Mothma_150e5c8a",
-        },
-      },
-    ],
-  },
+ 
   paths: {
     sources: './contracts',
     cache: './cache',
