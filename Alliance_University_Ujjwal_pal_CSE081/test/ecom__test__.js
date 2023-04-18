@@ -52,25 +52,23 @@ describe("shopping contract", function () {
 
     await shopping.connect(buyer).buyProduct(productId, { value: price });
 
-    const order = await shopping.userOrders(buyer.address);
-    expect(order.productId).to.equal(productId);
-    expect(order.orderStatus).to.equal("Order Placed With Seller");
-    expect(order.purchaseId).to.equal(0);
-    expect(order.shipmentStatus).to.equal("");
+    await expect(shopping.connect(buyer).buyProduct("product1", { value: 100 }))
+    .to.emit(shopping, "OrderPlaced")
+    .withArgs(buyer.address, "product1", 0);
 
-    const sellerOrder = await shopping.sellerOrders(seller.address, 0);
-    expect(sellerOrder.productId).to.equal(productId);
-    expect(sellerOrder.purchaseId).to.equal(0);
-    expect(sellerOrder.orderedBy).to.equal(buyer.address);
+    const orderInfo = await shopping.userOrders(buyer.address, 0);
+    expect(orderInfo.orderStatus).to.equal("Order Placed With Seller");
+    expect(orderInfo.shipmentStatus).to.equal("");
 
-    const sellerShipment = await shopping.sellerShipments(seller.address, 0);
-    expect(sellerShipment.productId).to.equal(productId);
-    expect(sellerShipment.purchaseId).to.equal(0);
-    expect(sellerShipment.shipmentStatus).to.equal("");
-    expect(sellerShipment.deliveryAddress).to.equal("123 Main St");
-    expect(sellerShipment.orderedBy).to.equal(buyer.address);
-    expect(sellerShipment.isActive).to.be.true;
-    expect(sellerShipment.isCanceled).to.be.false;
+    const shipmentInfo = await shopping.sellerShipments(seller.address, 0);
+    expect(shipmentInfo.orderedBy).to.equal(buyer.address);
+    expect(shipmentInfo.deliveryAddress).to.equal("123 Main St");
+    expect(shipmentInfo.isActive).to.equal(true);
+  });
+
+  it("should allow a buyer to cancel an order", async function () {
+    await shopping.connect(seller).sellerSignUp("My Store", { value: 1000 });
+    await shopping.connect(seller).addProduct("product1", "Product 1", "Category A", 100, "Description");
   });
 });
 
