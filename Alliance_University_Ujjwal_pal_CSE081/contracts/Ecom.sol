@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^ 0.5.4;
+pragma solidity ^0.8.4;
+
+
 contract shopping {
 
 	address payable public owner;
 
-	constructor() public {
-		owner = msg.sender;
+	constructor() {
+		owner = payable(msg.sender);
 	}
 	uint id;
 	uint purchaseId;
@@ -59,6 +61,8 @@ contract shopping {
 	mapping(address => user) users;
 	mapping(address => orders[]) userOrders;
 
+	event OrderPlaced(string _status, address indexed _buyer, string _productId);
+	
 	function sellerSignUp(string memory _name) public payable {
 		require(!sellers[msg.sender].bgPaid, "You are Already Registered");
 		require(msg.value == 1000 wei, "Bank Guarantee of 1000 wei Required");
@@ -92,24 +96,26 @@ contract shopping {
 		sellerOrders[products[_productId].seller].push(ord);
 
 		sellerShipments[products[_productId].seller][purchaseId].productId = _productId;
-		sellerShipments[products[_productId].seller][purchaseId].orderedBy = msg.sender;
+		sellerShipments[products[_productId].seller][purchaseId].orderedBy = payable(msg.sender);
 		sellerShipments[products[_productId].seller][purchaseId].purchaseId = purchaseId;
 		sellerShipments[products[_productId].seller][purchaseId].deliveryAddress = users[msg.sender].deliveryAddress;
 		sellerShipments[products[_productId].seller][purchaseId].isActive = true;
+
+		emit OrderPlaced("Order Placed With Seller", msg.sender, _productId);
 	}
 
-	function addProduct(string memory _productId, string memory _productName, string memory _category, uint _price, string memory _description) public {
+	function addProduct(string memory _productId, string memory _productName, string memory _category, uint _price, string memory _description)  public {
 		require(sellers[msg.sender].bgPaid, "You are not Registered as Seller");
 		require(!products[_productId].isActive, "Product With this Id is already Active. Use other UniqueId");
 
 
-		product memory newProduct = product(_productId, _productName, _category, _price, _description, msg.sender, true);
+		product memory newProduct = product(_productId, _productName, _category, _price, _description, payable(msg.sender), true);
 		products[_productId].productId = _productId;
 		products[_productId].productName = _productName;
 		products[_productId].Category = _category;
 		products[_productId].description = _description;
 		products[_productId].price = _price;
-		products[_productId].seller = msg.sender;
+		products[_productId].seller = payable(msg.sender);
 		products[_productId].isActive = true;
 		allProducts.push(newProduct);
 
