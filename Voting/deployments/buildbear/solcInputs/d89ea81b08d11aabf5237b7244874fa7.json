@@ -1,0 +1,38 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Election.sol": {
+      "content": "pragma solidity ^0.8.9;\r\n\r\ncontract Election {\r\n    //Election details will be stored in these variables\r\n    string public name;\r\n    string public description;\r\n\r\n    //Structure of candidate standing in the election\r\n    struct Candidate {\r\n        uint id;\r\n        string name;\r\n        uint voteCount;\r\n    }\r\n\r\n    //Storing candidates in a map\r\n    mapping(uint => Candidate) public candidates;\r\n\r\n    //Storing address of those voters who already voted\r\n    mapping(address => bool) public voters;\r\n\r\n    //Number of candidates in standing in the election\r\n    uint public candidatesCount = 0;\r\n\r\n    //Setting of variables and data, during the creation of election contract\r\n    constructor(string[] memory _nda, string[] memory _candidates) public {\r\n        require(_candidates.length > 0, \"There should be atleast 1 candidate.\");\r\n        name = _nda[0];\r\n        description = _nda[1];\r\n        for (uint i = 0; i < _candidates.length; i++) {\r\n            addCandidate(_candidates[i]);\r\n        }\r\n    }\r\n\r\n    //Private function to add a candidate\r\n    function addCandidate(string memory _name) private {\r\n        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);\r\n        candidatesCount++;\r\n    }\r\n\r\n    //Public vote function for voting a candidate\r\n    function vote(uint _candidate) public {\r\n        require(!voters[msg.sender], \"Voter has already Voted!\");\r\n        require(\r\n            _candidate < candidatesCount && _candidate >= 0,\r\n            \"Invalid candidate to Vote!\"\r\n        );\r\n        voters[msg.sender] = true;\r\n        candidates[_candidate].voteCount++;\r\n    }\r\n}\r\n"
+    },
+    "contracts/MainContract.sol": {
+      "content": "pragma solidity ^0.8.9;\r\n\r\nimport \"./Election.sol\";\r\n\r\ncontract MainContract {\r\n    uint public electionId = 0;\r\n    mapping(uint => address) public Elections;\r\n\r\n    event ElectionCreated(uint id);\r\n\r\n    function createElection(\r\n        string[] memory _nda,\r\n        string[] memory _candidates\r\n    ) public returns(uint id) {\r\n        Election election = new Election(_nda, _candidates);\r\n        Elections[electionId] = address(election);\r\n        id = electionId++;\r\n        emit ElectionCreated(id);\r\n        return id;\r\n    }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
