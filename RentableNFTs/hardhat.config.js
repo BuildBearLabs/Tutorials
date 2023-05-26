@@ -53,7 +53,7 @@ module.exports = {
   namedAccounts: {
     deployer: 0
   },
-  etherscan: {
+  etherscan: { // copy this etherscan object from the verfiy Contract section from the  Dashboard 
     apiKey: {
       buildbear: "verifyContract",
     },
@@ -62,8 +62,8 @@ module.exports = {
         network: "buildbear",
         chainId: 1,
         urls: {
-          apiURL: "Copy from the Dashboard",
-          browserURL: "Copy from the Dashboard",
+          apiURL: "https://rpc.buildbear.io/verify/etherscan/smooth-ackbar-43a38d07",
+          browserURL: "https://explorer.buildbear.io/smooth-ackbar-43a38d07",
         },
       },
     ],
