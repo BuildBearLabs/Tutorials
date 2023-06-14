@@ -47,13 +47,13 @@ module.exports = {
   defaultNetwork: "buildbear",
   networks: {
     buildbear: {
-      url: "https://rpc.dev.buildbear.io/grotesque-palpatine-970c2c15"
+      url:  //rpc Url from BuildBear Dashboard
     }
   },
   namedAccounts: {
     deployer: 0
   },
-  etherscan: {
+  etherscan: {  // copy the Etherscan object from the verify Contracts secion on Dashboard 
     apiKey: {
       buildbear: "verifyContract",
     },
@@ -62,8 +62,8 @@ module.exports = {
         network: "buildbear",
         chainId: 1,
         urls: {
-          apiURL: "https://rpc.dev.buildbear.io/verify/etherscan/grotesque-palpatine-970c2c15",
-          browserURL: "https://explorer.dev.buildbear.io/grotesque-palpatine-970c2c15",
+          apiURL: "https://rpc.buildbear.io/verify/etherscan/grotesque-palpatine-970c2c15",
+          browserURL: "https://explorer.buildbear.io/grotesque-palpatine-970c2c15",
         },
       },
     ],
