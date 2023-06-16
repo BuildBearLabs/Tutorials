@@ -1,21 +1,16 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const [admin1, admin2, admin3] = await ethers.getSigners();
+  const multisigFactory = await ethers.getContractFactory("Multisig");
 
-  const lockedAmount = ethers.parseEther("0.001");
-
-  const lock = await ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
-
-  await lock.waitForDeployment();
+  console.log("Deploying the Multisig Wallet contract...");
+  const multisig = await multisigFactory.deploy([admin1, admin2, admin3], 2);
 
   console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
+    `Simple with deployed to ${await multisig.getAddress()} by ${
+      admin1.address
+    }`
   );
 }
 
