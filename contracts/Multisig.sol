@@ -35,7 +35,7 @@ contract Multisig {
         bytes data;
         bool isExecuted;
     }
-    Transaction[] internal transactions;
+    Transaction[] public transactions;
 
     uint8 internal minApprovals;
     uint256 public availableBalance;
@@ -104,7 +104,7 @@ contract Multisig {
         address _to,
         uint256 _value,
         bytes calldata _data
-    ) public onlyAdmin returns (uint256 txId) {
+    ) external onlyAdmin returns (uint256 txId) {
         if (_value > availableBalance) {
             revert InvalidTxnValue();
         }
@@ -124,19 +124,19 @@ contract Multisig {
 
     function approve(
         uint256 _txId
-    ) public onlyAdmin notApproved(_txId) notExecuted(_txId) {
+    ) external onlyAdmin notApproved(_txId) notExecuted(_txId) {
         isApprover[_txId][msg.sender] = true;
         emit Approve(_txId, msg.sender);
     }
 
     function revoke(
         uint256 _txId
-    ) public onlyAdmin isApproved(_txId) notExecuted(_txId) {
+    ) external onlyAdmin isApproved(_txId) notExecuted(_txId) {
         isApprover[_txId][msg.sender] = false;
         emit Revoke(_txId, msg.sender);
     }
 
-    function execute(uint256 _txId) public onlyAdmin notExecuted(_txId) {
+    function execute(uint256 _txId) external onlyAdmin notExecuted(_txId) {
         // revert if not enough approvals
         if (getApprovalCount(_txId) < minApprovals) {
             revert NotEnoughApprovals(_txId);
