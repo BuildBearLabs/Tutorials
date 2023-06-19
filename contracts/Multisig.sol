@@ -120,6 +120,7 @@ contract Multisig {
         txId = transactions.length - 1;
 
         emit Submit(txId, msg.sender);
+        return txId;
     }
 
     function approve(
