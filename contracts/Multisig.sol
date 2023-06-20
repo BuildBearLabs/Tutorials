@@ -41,7 +41,7 @@ contract Multisig {
     uint256 public availableBalance;
     uint256 public nounce;
 
-    mapping(uint256 => mapping(address => bool)) isApprover;
+    mapping(uint256 => mapping(address => bool)) public isApprover;
 
     // Modifiers //
     modifier onlyAdmin() {
