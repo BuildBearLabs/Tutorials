@@ -28,11 +28,15 @@ async function clearNodesFile() {
 async function confirmAndStoreNodeData(node, apiKey, aliveNodes) {
   await waitForLiveNode(node, apiKey, aliveNodes);
 
+  let nodes;
+
   try {
     nodes = JSON.parse(
       fs.readFileSync(path.join(__dirname, './nodes.json')).toString().trim()
     );
+  } catch (e) {}
 
+  try {
     fs.writeFileSync(
       path.join(__dirname, './nodes.json'),
       JSON.stringify([...nodes, node], null, 2)
