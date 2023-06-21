@@ -1,13 +1,12 @@
 const axios = require('axios');
 const { ethers } = require('ethers');
-const { BB_BACKEND_URL, networkData } = require('./constants');
+const { BB_BACKEND_URL, BB_API_KEY } = require('./constants');
 const {
   confirmAndStoreNodeData,
   clearNodesFile,
   getUserDetails,
 } = require('./helpers');
 
-const SCAFFOLD_ETH_API_KEY = 'BB_a55d709e-9513-4f81-973a-6681d36e0970';
 
 async function createTestnet(apiKey, createdNodes, aliveNodes) {
   const data = JSON.stringify({
@@ -109,7 +108,7 @@ async function createTestnets() {
       break;
     }
 
-    await createTestnet(SCAFFOLD_ETH_API_KEY, createdNodes, aliveNodes);
+    await createTestnet(BB_API_KEY, createdNodes, aliveNodes);
   }
 
   console.log('Created nodes..');

@@ -9,10 +9,7 @@ async function deploy() {
     const tokenInstance = await token.deploy(1000
     );
     await tokenInstance.deployed();
-    await run(`verify:verify`, {
-        address: tokenInstance.address,
-        constructorArguments: [1000],
-    });
+
 
 }
 
