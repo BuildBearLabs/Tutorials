@@ -1,66 +1,15 @@
 const axios = require('axios');
 const { ethers } = require('ethers');
 const { BB_BACKEND_URL, networkData } = require('./constants');
-const { confirmAndStoreNodeData } = require('./helpers');
+const {
+  confirmAndStoreNodeData,
+  clearNodesFile,
+  getUserDetails,
+} = require('./helpers');
 
-async function getBlockNumber(rpc) {
-  const provider = new ethers.providers.JsonRpcProvider(rpc);
-  const chainId = (await provider.getNetwork()).chainId;
+const SCAFFOLD_ETH_API_KEY = 'BB_a55d709e-9513-4f81-973a-6681d36e0970';
 
-  function getLargestPossibleReorg() {
-    // mainnet
-    if (chainId === 1) {
-      return 5;
-    }
-
-    // Goerli
-    if (chainId === 5) {
-      return 5;
-    }
-
-    // Polygon
-    if (chainId === 137) {
-      return 50;
-    }
-
-    // Polygon Mumbai
-    if (chainId === 80001) {
-      return 50;
-    }
-
-    // BSC
-    if (chainId === 56) {
-      return 50;
-    }
-
-    return null;
-  }
-
-  const FALLBACK_MAX_REORG = 200;
-
-  const actualMaxReorg = getLargestPossibleReorg(chainId);
-  const maxReorg = actualMaxReorg || FALLBACK_MAX_REORG;
-
-  const latestBlock = await provider.getBlockNumber();
-  const lastSafeBlock = latestBlock - maxReorg;
-
-  return lastSafeBlock;
-}
-
-async function createFork({ chainId, blockNumber, apiKey }) {
-  const ora = (await import('ora')).default;
-  const network = networkData[chainId][0];
-  const rpc = networkData[chainId][1];
-
-  const createNodeSpinner = ora(
-    `Creating a new ${network} fork on Buildbear...`
-  ).start();
-
-  if (!blockNumber) {
-    const latestBlockNumber = await getBlockNumber(rpc);
-    blockNumber = latestBlockNumber;
-  }
-
+async function createTestnet(apiKey, createdNodes, aliveNodes) {
   const data = JSON.stringify({
     checked: false,
     allowUnlimitedContractSize: false,
@@ -106,10 +55,6 @@ async function createFork({ chainId, blockNumber, apiKey }) {
         overrideGas: true,
       },
     },
-    forking: {
-      chainId: parseInt(chainId),
-      blockNumber: blockNumber,
-    },
   });
 
   const config = {
@@ -129,9 +74,7 @@ async function createFork({ chainId, blockNumber, apiKey }) {
     const resData = response.data;
 
     if (response.status === 200) {
-      node = { nodeId: resData.nodeId, chainId: resData.chainId };
-      createNodeSpinner.succeed('Node created successfully');
-      console.log(node);
+      node = { nodeId: resData.nodeId };
     } else {
       console.log('Error in creating node, Error: ', resData);
     }
@@ -139,7 +82,48 @@ async function createFork({ chainId, blockNumber, apiKey }) {
     console.log('Error in creating node, Error: ', err);
   }
 
-  if (node) await confirmAndStoreNodeData(node, chainId, apiKey);
+  if (node) {
+    confirmAndStoreNodeData(node, apiKey, aliveNodes);
+    createdNodes.push(node);
+  }
 }
 
-module.exports = { createFork };
+async function createTestnets() {
+  await getUserDetails();
+
+  const ora = (await import('ora')).default;
+
+  const createNodeSpinner = ora(`Creating testnets on Buildbear...`).start();
+
+  const aliveNodes = [0];
+  const createdNodes = [];
+  const noOfNodes = 5;
+
+  // clear nodes.json before creating new nodes
+  await clearNodesFile();
+
+  // loop to create testnets
+  while (true) {
+    if (createdNodes.length == noOfNodes) {
+      createNodeSpinner.succeed('Testnets created on Buildbear');
+      break;
+    }
+
+    await createTestnet(SCAFFOLD_ETH_API_KEY, createdNodes, aliveNodes);
+  }
+
+  console.log('Created nodes..');
+  console.log(createdNodes);
+
+  const waitAliveNodesSpinner = ora(`Waiting for nodes to be live...`).start();
+
+  // interval to check whether nodes are live
+  const waitAliveNodesInterval = setInterval(() => {
+    if (aliveNodes[0] === noOfNodes) {
+      waitAliveNodesSpinner.succeed('All nodes are live');
+      clearInterval(waitAliveNodesInterval);
+    }
+  }, 100);
+}
+
+createTestnets();

@@ -11,6 +11,7 @@
     "chai": "^4.3.7",
     "ethereum-waffle": "^4.0.10",
     "hardhat": "^2.14.0",
+    "inquirer": "^9.1.5",
     "ora": "^6.3.0"
   },
   "devDependencies": {
@@ -20,6 +21,14 @@
     "ethers": "^5.7.0"
   },
   "scripts": {
-    "test": "hardhat fork-bb && hardhat test"
+    "createTestnets": "node createTestnets.js",
+    "test1": "hardhat test test/artwork-test.js --network buildbear1",
+    "test2": "hardhat test test/ERC1155.test.js --network buildbear2",
+    "test3": "hardhat test test/game-item-test.js --network buildbear3",
+    "test4": "hardhat test test/Greeter-Test.js --network buildbear4",
+    "test5": "hardhat test test/simple-test.js --network buildbear5",
+    "test6": "hardhat test test/Token-test.js --network buildbear1",
+    "test7": "hardhat test test/MultiSigWallet.test.js --network buildbear2",
+    "test": "npm run test1 && npm run test2 && npm run test3 && npm run test4 && npm run test5 && npm run test6 && npm run test7"
   }
 }
