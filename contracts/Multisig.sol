@@ -150,6 +150,9 @@ contract Multisig {
         );
         if (success) {
             nounce++;
+        } else {
+            // We need to add the value back in the availableBalance else it will be locked forever
+            availableBalance += txn.value;
         }
         emit Execute(_txId, success, data);
     }

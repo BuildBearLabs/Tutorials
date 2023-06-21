@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
-import { parseEther } from "ethers";
+import { BytesLike, parseEther } from "ethers";
 
 describe("Multisig", function () {
   async function deployMultisigFixture() {
@@ -403,6 +403,178 @@ describe("Multisig", function () {
       await expect(multisigContract.connect(admin1).revoke(0))
         .to.emit(multisigContract, "Revoke")
         .withArgs(0, admin1.address);
+    });
+  });
+
+  describe("Execute", function () {
+    it("Should be callable by only admins", async function () {
+      const { multisigContract, admin1, admin2, admin3, other } =
+        await loadFixture(submitFixture);
+      const tx1 = await multisigContract.connect(admin1).approve(0);
+      await tx1.wait();
+      const tx2 = await multisigContract.connect(admin2).approve(0);
+      await tx2.wait();
+      const tx3 = await multisigContract.connect(admin3).approve(0);
+      await tx3.wait();
+
+      await expect(multisigContract.connect(other).execute(0))
+        .to.revertedWithCustomError(multisigContract, "NotAdmin")
+        .withArgs(other.address);
+      await expect(multisigContract.connect(admin1).execute(0)).to.not.reverted;
+    });
+
+    it("Should revert if not enough approvals", async function () {
+      const { multisigContract, admin1 } = await loadFixture(submitFixture);
+      const tx1 = await multisigContract.connect(admin1).approve(0);
+      await tx1.wait();
+
+      await expect(multisigContract.connect(admin1).execute(0))
+        .to.revertedWithCustomError(multisigContract, "NotEnoughApprovals")
+        .withArgs(0);
+    });
+
+    it("Should revert if already Executed", async function () {
+      const { multisigContract, admin1, admin2, admin3 } = await loadFixture(
+        submitFixture
+      );
+      const tx1 = await multisigContract.connect(admin1).approve(0);
+      await tx1.wait();
+      const tx2 = await multisigContract.connect(admin2).approve(0);
+      await tx2.wait();
+      const tx3 = await multisigContract.connect(admin3).approve(0);
+      await tx3.wait();
+      const tx4 = await multisigContract.connect(admin3).execute(0);
+      await tx4.wait();
+
+      await expect(multisigContract.connect(admin1).execute(0))
+        .to.revertedWithCustomError(multisigContract, "AlreadyExecuted")
+        .withArgs(0);
+    });
+
+    it("Should update transaction status correctly", async function () {
+      const { multisigContract, admin1, admin2, admin3 } = await loadFixture(
+        submitFixture
+      );
+      const tx1 = await multisigContract.connect(admin1).approve(0);
+      await tx1.wait();
+      const tx2 = await multisigContract.connect(admin2).approve(0);
+      await tx2.wait();
+      const tx3 = await multisigContract.connect(admin3).approve(0);
+      await tx3.wait();
+      const tx4 = await multisigContract.connect(admin3).execute(0);
+      await tx4.wait();
+
+      expect((await multisigContract.transactions(0)).isExecuted).to.equal(
+        true
+      );
+    });
+
+    it("Should update nounce correctly", async function () {
+      const { multisigContract, admin1, admin2, admin3 } = await loadFixture(
+        submitFixture
+      );
+      const tx1 = await multisigContract.connect(admin1).approve(0);
+      await tx1.wait();
+      const tx2 = await multisigContract.connect(admin2).approve(0);
+      await tx2.wait();
+      const tx3 = await multisigContract.connect(admin3).approve(0);
+      await tx3.wait();
+      const tx4 = await multisigContract.connect(admin2).revoke(0);
+      await tx4.wait();
+      const tx5 = await multisigContract.connect(admin3).execute(0);
+      await tx5.wait();
+
+      expect(await multisigContract.nounce()).to.equal(1);
+    });
+
+    it("Should emit Execute event", async function () {
+      const { multisigContract, admin1, admin2 } = await loadFixture(
+        submitFixture
+      );
+
+      const tx1 = await multisigContract.connect(admin1).approve(0);
+      await tx1.wait();
+      const tx2 = await multisigContract.connect(admin2).approve(0);
+      await tx2.wait();
+
+      await expect(multisigContract.connect(admin1).execute(0))
+        .to.emit(multisigContract, "Execute")
+        .withArgs(0, true, "0x");
+    });
+  });
+
+  describe("Contract Interaction", async function () {
+    async function deployReverterFixture() {
+      const {
+        multisigContract,
+        multisigFactory,
+        availableBalance,
+        ONE_ETH,
+        minApproval,
+        admin1,
+        admin2,
+        admin3,
+        other,
+      } = await depositFixture();
+
+      const reverterFactory = await ethers.getContractFactory("Reverter");
+      const reverterContract = await reverterFactory.connect(other).deploy();
+      return {
+        multisigContract,
+        multisigFactory,
+        reverterContract,
+        availableBalance,
+        ONE_ETH,
+        minApproval,
+        admin1,
+        admin2,
+        admin3,
+        other,
+      };
+    }
+
+    it("Should handle failed calls correctly", async function () {
+      const {
+        multisigContract,
+        reverterContract,
+        availableBalance,
+        ONE_ETH,
+        admin1,
+        admin2,
+        admin3,
+      } = await loadFixture(deployReverterFixture);
+
+      const value = ONE_ETH;
+      const data = reverterContract.interface.encodeFunctionData("giveError");
+
+      expect(await multisigContract.availableBalance()).to.equal(
+        availableBalance
+      );
+
+      const tx1 = await multisigContract
+        .connect(admin1)
+        .submit(reverterContract.getAddress(), value, data);
+      await tx1.wait();
+      expect(await multisigContract.availableBalance()).to.equal(
+        availableBalance - value
+      );
+
+      const tx2 = await multisigContract.connect(admin1).approve(0);
+      await tx2.wait();
+      const tx3 = await multisigContract.connect(admin2).approve(0);
+      await tx3.wait();
+
+      const tx4 = await multisigContract.connect(admin3).approve(0);
+      await tx4.wait();
+      const tx5 = await multisigContract.connect(admin3).revoke(0);
+      await tx5.wait();
+
+      const tx6 = await multisigContract.connect(admin1).execute(0);
+      await tx6.wait();
+
+      expect(await multisigContract.availableBalance()).to.equal(
+        availableBalance
+      );
     });
   });
 });
