@@ -1,10 +1,7 @@
-const BASE_URL = 'dev.buildbear.io';
+const BASE_URL = 'buildbear.io';
 const BB_BACKEND_URL = `https://backend.${BASE_URL}`;
 const BB_RPC_URL = `https://rpc.${BASE_URL}`;
-// const BB_API_KEY = "BB_a55d709e-9513-4f81-973a-6681d36e0970"; // Production scaffold-eth API 
-
-const BB_API_KEY = "BB_a55d709e-9513-4f81-234h-6681d36e0970"; // Dev API 
-
+const BB_API_KEY = 'BB_a85d719e-9513-4f81-234h-6781e46e1870';
 
 module.exports = {
   BASE_URL,

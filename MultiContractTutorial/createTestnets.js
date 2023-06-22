@@ -7,7 +7,6 @@ const {
   getUserDetails,
 } = require('./helpers');
 
-
 async function createTestnet(apiKey, createdNodes, aliveNodes) {
   const data = JSON.stringify({
     checked: false,
@@ -88,7 +87,7 @@ async function createTestnet(apiKey, createdNodes, aliveNodes) {
 }
 
 async function createTestnets() {
-  await getUserDetails();
+  // await getUserDetails();
 
   const ora = (await import('ora')).default;
 
