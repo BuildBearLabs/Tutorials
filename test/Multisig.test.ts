@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
-import { BytesLike, parseEther } from "ethers";
+import { parseEther } from "ethers";
 
 describe("Multisig", function () {
   async function deployMultisigFixture() {
@@ -572,6 +572,7 @@ describe("Multisig", function () {
       const tx6 = await multisigContract.connect(admin1).execute(0);
       await tx6.wait();
 
+      expect(await multisigContract.nounce()).to.equal(1);
       expect(await multisigContract.availableBalance()).to.equal(
         availableBalance
       );
