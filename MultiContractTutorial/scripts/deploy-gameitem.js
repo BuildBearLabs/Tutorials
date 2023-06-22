@@ -9,9 +9,7 @@ async function deploy() {
     const gameitemInstance = await gameitem.deploy(
     );
     await gameitemInstance.deployed();
-    await run(`verify:verify`, {
-        address: gameitemInstance.address,
-    });
+
 
 }
 

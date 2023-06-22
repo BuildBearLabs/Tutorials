@@ -9,9 +9,7 @@ async function deploy() {
     const simpleStorageInstance = await simpleStorage.deploy(
     );
     await simpleStorageInstance.deployed();
-    await run(`verify:verify`, {
-        address: simpleStorageInstance.address,
-    });
+
 
 }
 

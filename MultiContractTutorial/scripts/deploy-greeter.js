@@ -9,9 +9,7 @@ async function deploy() {
     const greeterInstance = await greeter.deploy(
     );
     await greeterInstance.deployed();
-    await run(`verify:verify`, {
-        address: greeterInstance.address,
-    });
+
 
 }
 

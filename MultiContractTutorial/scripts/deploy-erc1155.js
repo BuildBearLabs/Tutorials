@@ -9,9 +9,7 @@ async function deploy() {
     const testERC1155Instance = await TestERC1155.deploy(
     );
     await testERC1155Instance.deployed();
-    await run(`verify:verify`, {
-        address: testERC1155Instance.address,
-    });
+
 
 }
 

@@ -8,10 +8,7 @@ async function deploy() {
     const artwork = await ethers.getContractFactory('Artwork');
     const artworkInstance = await artwork.deploy("Artwork Contract", "ART");
     await artworkInstance.deployed();
-    await run(`verify:verify`, {
-        address: artworkInstance.address,
-        constructorArguments: ["Artwork Contract", "ART"],
-    });
+
 
 }
 
