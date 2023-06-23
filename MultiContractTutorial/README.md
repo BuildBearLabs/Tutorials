@@ -13,7 +13,10 @@
 - Create a Testnet on BuildBear
 - Copy the RPC and explorer link from the Dashboard and add to the hardhat.config.js file
 
-### To deploy all the contracts, run `npx hardhat run scripts/deployAll.js --network buildbear`.
+### To deploy all the contracts, run `npx hardhat run scripts/deployAll.js`.
 
 ### To run all the TestScripts, use the command `npx hardhat test`.
 
+### Creating Testnet, use the command `npm run createTestnets`
+
+### Run the Testscripts, Use the command `npm run test`
