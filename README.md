@@ -1,4 +1,3 @@
-
 # BuildBear
 
 Some interesting tutorials for your learning! 
@@ -32,6 +31,4 @@ Some interesting tutorials for your learning!
 | 13     | What is Eth2.0?                              | [Web3 Development: Learn what is ETH2.0 and how it impacts you](https://medium.com/buildbear/eth2-0-what-and-why-should-i-know-as-a-developer-36c8bcd368dd)                                         |
 | 14     | Rugpulls                                     | [Rugpulls and How to save yourself from them](https://medium.com/buildbear/rugpulls-and-how-to-save-yourself-from-them-df08247f8674)                                                                |
 | 15     | Foundry Testing                              | [Web3 Beginner: How to use Foundry to test an ERC20 Contract with Fuzzing](https://medium.com/buildbear/web3-beginner-how-to-use-foundry-to-test-an-erc20-contract-with-fuzzing-3f456e8a10f5)       |
-
-
 
