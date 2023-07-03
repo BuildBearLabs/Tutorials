@@ -20,13 +20,13 @@ module.exports = {
   defaultNetwork: "buildbear",
   networks: {
     buildbear: {
-      url: "https://rpc.buildbear.io/clean-lama-su-70e3f8fd"
+      url: //rpc Url from BuildBear Dashboard
     }
   },
   namedAccounts: {
     deployer: 0
   },
-  etherscan: {
+  etherscan: { // copy the Etherscan object from the verify Contracts secion on Dashboard 
     apiKey: {
       buildbear: "verifyContract",
     },
