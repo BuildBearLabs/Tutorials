@@ -56,27 +56,12 @@ module.exports = {
   defaultNetwork: "buildbear",
   networks: {
     buildbear: {
-      url: "https://rpc.dev.buildbear.io/batman",
+      url: , // copy from the Dashboard 
   }
 
   },
   namedAccounts: {
     deployer: 0
-  },
-  etherscan: {
-    apiKey: {
-      buildbear: "verifyContract",
-    },
-    customChains: [
-      {
-        network: "buildbear",
-        chainId: 11155111,
-        urls: {
-          apiURL: "https://rpc.dev.buildbear.io/verify/etherscan/batman",
-          browserURL: "https://explorer.dev.buildbear.io/batman",
-        },
-      },
-    ],
   },
   
 };
