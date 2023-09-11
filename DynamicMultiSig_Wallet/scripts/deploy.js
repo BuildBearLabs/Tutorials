@@ -7,19 +7,22 @@
 const hre = require("hardhat");
 
 const owners = [
-  "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  "0x889A3Ce9F119fA4b0e91172B25C7eE71A328B4F4",
-  "0xC300720FF01E8F6c154dC4C3F2e4A4D297bCd325",
+  "0x8fCA103AF6b79165943c4F9e40B9beFDAc21aA66",
+  "0x7dc989B5cDe34DdDAD27f29f0367fa94C896701A",
+  "0x0a712b7ab8910BCc95C35193A3739b55aE7c66e4",
 ];
 
 async function main() {
-  const MultiSig_Wallet = await hre.ethers.getContractFactory("multisig");
-  const multisig = await MultiSig_Wallet.deploy(owners, 2);
+  const MultiSig_Wallet = await hre.ethers.getContractFactory(
+    "dynamicmultisig"
+  );
+  const dynamicmultisig = await MultiSig_Wallet.deploy(owners, 2);
 
-  await multisig.deployed();
+  await dynamicmultisig.deployed();
+
   console.log(
-    "MultiSig Wallet Contract has been deployed at ",
-    multisig.address,
+    "Dynamic MultiSig Wallet Contract has been deployed at ",
+    dynamicmultisig.address
   );
 }
 
