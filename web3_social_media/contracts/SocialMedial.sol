@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // web3 Social media smart contract
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.13;
 
 contract SocialMedia {
 
