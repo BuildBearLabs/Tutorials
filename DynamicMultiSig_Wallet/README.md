@@ -1,4 +1,6 @@
-## Dynamic MultiSig Wallet
+# Dynamic MultiSig Wallet
+
+Medium Article: [Building and Deploying a Dynamic MultiSig Wallet With BuildBear Testnet.](https://medium.com/@molubode81/building-and-deploying-a-dynamic-multisig-wallet-with-buildbear-testnet-e27ceea7a055)
 
 ### Features
 
@@ -18,6 +20,8 @@
 
 ### To deploy the dynamicmultisig contract, run `npx hardhat run scripts/deploy.js --network buildbear`.
 
-Access Repo [here](https://github.com/SundayOlubode/Solidity-Tutorials/tree/SundayOlubode/DynamicMultiSig_Wallet)
+[Github Repository](https://github.com/SundayOlubode/Solidity-Tutorials/tree/SundayOlubode/DynamicMultiSig_Wallet)
 
-Access Explorer [here](https://explorer.buildbear.io/wicked-rugor-nass-8d7a7a93/address/0x547D0D9D14252b97F759ab951d004EFA8Dbb4298)
+[Smart Contract Explorer](https://explorer.buildbear.io/wicked-rugor-nass-8d7a7a93/address/0x547D0D9D14252b97F759ab951d004EFA8Dbb4298)
+
+[Building and Deploying a Dynamic MultiSig Wallet With BuildBear Testnet.](https://medium.com/@molubode81/building-and-deploying-a-dynamic-multisig-wallet-with-buildbear-testnet-e27ceea7a055)

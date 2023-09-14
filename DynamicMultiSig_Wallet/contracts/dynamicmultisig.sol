@@ -13,7 +13,6 @@ contract dynamicmultisig{
 	);
 	event SubmitProposal(address indexed owner, uint indexed ppsIndex);
 
-
 	event ConfirmTransaction(address indexed owner, uint indexed txIndex);
 	event ConfirmProposal(address indexed owner, uint indexed ppsIndex);
 
@@ -226,10 +225,7 @@ contract dynamicmultisig{
 
 		// Increment Number of Confirmations when a new owner is added
 		numConfirmationsRequired = owners.length / 2;
-
-		if (owners.length % 2 == 1) {
-			numConfirmationsRequired++;
-		}
+		numConfirmationsRequired++;
 
         emit ExecuteProposal(msg.sender, _ppsIndex);
     }
