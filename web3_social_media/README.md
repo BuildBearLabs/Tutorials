@@ -1,5 +1,5 @@
 # Social Media Smart Contract
-
+- Note: This project include an [article](https://medium.com/@aycrown77/resolving-a-getcontractfactory-error-in-hardhat-a-step-by-step-guide-d901fc186815) on how I was able to resolve the deployment error I was facing.
 ## Overview
 
 This Ethereum smart contract functions as a basic social media platform, allowing users to create posts, like posts created by others, and view their own and other users' posts.
