@@ -45,10 +45,9 @@ describe("DutchAuction contract", function () {
   });
 
   it("should calculate the correct price over time", async function () {
-    const timeElapsed = DURATION / 2; // Half the duration
+    const timeElapsed = DURATION / 2; 
     const expectedPrice = startingPrice.sub(discountRate.mul(timeElapsed));
 
-    // Increase the time
     await network.provider.send("evm_increaseTime", [timeElapsed]);
     await network.provider.send("evm_mine");
 
@@ -57,44 +56,38 @@ describe("DutchAuction contract", function () {
   });
 
   it("should allow the buyer to purchase the NFT", async function () {
-    const expectedPrice = ethers.utils.parseEther("0.5"); // Half the starting price
-    const gasLimit = 210000; // Adjust gas limit as needed
+    const expectedPrice = ethers.utils.parseEther("0.5"); 
+    const gasLimit = 210000; 
 
-    // Increase the time to halfway through the auction
     await network.provider.send("evm_increaseTime", [DURATION / 2]);
     await network.provider.send("evm_mine");
 
-    // Buyer purchases the NFT
     const tx = await dutchAuction.connect(buyer).buy({ value: expectedPrice, gasLimit: gasLimit });
 
-    // Check the NFT owner
     const owner = await nft.ownerOf(1);
     expect(owner).to.equal(buyer.address);
 
-    // Check that the seller received the payment
     const sellerBalance = await ethers.provider.getBalance(seller.address);
     const expectedSellerBalance = startingPrice.sub(expectedPrice);
     expect(sellerBalance).to.equal(expectedSellerBalance);
 
-    // Check that the buyer received a refund
     const buyerBalance = await ethers.provider.getBalance(buyer.address);
     expect(buyerBalance).to.be.gt(expectedPrice);
 
-    // Check the contract balance (should be zero after selfdestruct)
     const contractBalance = await ethers.provider.getBalance(dutchAuction.address);
     expect(contractBalance).to.equal(0);
 
-    // Check that the auction contract is self-destructed
+    
     await expect(tx).to.be.revertedWith("Self-destructed");
   });
 
   it("should not allow the buyer to purchase the NFT after the auction expires", async function () {
-    // Increase the time to after the auction expiration
+    
     await network.provider.send("evm_increaseTime", [DURATION + 1]);
     await network.provider.send("evm_mine");
 
-    // Try to purchase the NFT
-    const expectedPrice = ethers.utils.parseEther("0.5"); // Half the starting price
+    
+    const expectedPrice = ethers.utils.parseEther("0.5"); 
     await expect(
       dutchAuction.connect(buyer).buy({ value: expectedPrice })
     ).to.be.revertedWith("auction expired");
