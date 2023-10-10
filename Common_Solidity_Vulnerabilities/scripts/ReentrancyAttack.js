@@ -9,7 +9,7 @@ async function deploy() {
   const EtherStore = await ethers.getContractFactory("EtherStore");
   const EtherStoreInstance = await EtherStore.deploy();
   console.log("EtherStore contract deployed at", EtherStoreInstance.address);
-  EtherStoreInstance.deposit({ value: ethers.utils.parseEther("5.0") });
+  await EtherStoreInstance.deposit({ value: ethers.utils.parseEther("5.0") });
   const Attacker = await ethers.getContractFactory("Attacker");
   const AttackerInstance = await Attacker.deploy(EtherStoreInstance.address);
   console.log("Attacker contract deployed at", AttackerInstance.address);
@@ -30,7 +30,7 @@ async function deploy() {
   const SafeVault = await ethers.getContractFactory("SafeVault");
   const SafeVaultInstance = await SafeVault.deploy();
   console.log("SafeVault contract deployed at", SafeVaultInstance.address);
-  SafeVaultInstance.deposit({ value: ethers.utils.parseEther("5.0") });
+  await SafeVaultInstance.deposit({ value: ethers.utils.parseEther("5.0") });
   const Attacker2 = await ethers.getContractFactory("Attacker2");
   const Attacker2Instance = await Attacker2.deploy(SafeVaultInstance.address);
   console.log("Attacker contract deployed at", Attacker2Instance.address);
