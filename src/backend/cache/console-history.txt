@@ -1,0 +1,35 @@
+const tokenCount = await contract.tokenCount()
+const contract = await ethers.getContractFactory("NFT")
+const contract = await hre.ethers.getSigners ()
+const accounts = await hre.ethers.getSigners ()
+const contract = await ethers.getContractFactory ("NFT")
+const MyContract = await ethers.getContractFactory ("NFT")
+const MyContract = await ethers.getContractFactory ("MyContract")
+network
+global
+continue
+config
+global
+address
+const contract = await ethers.getContractAt("NFT", "0x5FbD82315678afecb3671032093F642f54188aa3")
+const contract = await ethers getContractAt("NFT", "0x5FbD82315678afecb3671032093F642f54188aa3")
+address
+.load
+.editor
+.save
+.help
+const tokenCount = await contract.tokenCount()
+name
+symbol
+name
+const name = await contract.name()
+.help
+.clear
+.load
+.help
+.editor
+.break
+.exit
+.help
+.exit
+.help
