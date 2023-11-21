@@ -1,0 +1,19 @@
+{
+  "name": "dynamicmultisig_wallet",
+  "version": "1.0.0",
+  "description": "A dynamic multisig wallet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sunday Olubode",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "hardhat": "^2.17.2"
+  }
+}
