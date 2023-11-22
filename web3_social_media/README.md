@@ -90,7 +90,7 @@ This Ethereum smart contract functions as a basic social media platform, allowin
 
 ## Disclaimer
 
-- This smart contract is provided as-is. The owner and developers are not responsible for any issues, bugs, or misuse that may occur while using this contract.
+- This smart contract is provided as-is. The owners and developers are not responsible for any issues, bugs, or misuse that may occur while using this contract.
 
 ## License
 
