@@ -6,8 +6,8 @@ import { ethers } from "ethers";
 import contractABI from "../../artifacts/contractABI.json";
 import dynamic from "next/dynamic";
 import axios from "axios";
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const Dashboard = () => {
   const [address, setAddress] = useState(
@@ -121,28 +121,37 @@ const Dashboard = () => {
         </h2>
         <hr style={{ width: "200px", margin: "10px auto", padding: "2px" }} />
       </div>
-      {
-      loader &&
-        <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", margin: "auto" }}>
+      {loader && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "auto",
+          }}
+        >
           <CircularProgress />
         </Box>
-      }
+      )}
       <div className="max-w-[1000px] m-auto flex justify-center items-center flex-wrap">
-       <div className="mt-12">
-       <ul style={{display: "flex"}} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center items-center m-auto flex">
-        {allEvents
-          .filter(
-            (items) => items.eventOwner.toLowerCase() === address?.address
-          )
-          .map((filteredItem, _idx) => (
-            <OrganizedEvents
-              image={filteredItem.eventImage}
-              title={filteredItem.title}
-              key={_idx}
-            />
-          ))}
-              </ul>
-</div>
+        <div className="mt-12">
+          <ul
+            style={{ display: "flex" }}
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center items-center m-auto"
+          >
+            {allEvents
+              .filter(
+                (items) => items.eventOwner.toLowerCase() === address?.address
+              )
+              .map((filteredItem, _idx) => (
+                <OrganizedEvents
+                  image={filteredItem.eventImage}
+                  title={filteredItem.title}
+                  key={_idx}
+                />
+              ))}
+          </ul>
+        </div>
       </div>{" "}
     </>
   );
