@@ -1,0 +1,51 @@
+{
+  "name": "EVENT APPLICATION",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@material/dialog": "^14.0.0",
+    "@mui/material": "^5.15.7",
+    "@next/font": "13.0.7",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@reduxjs/toolkit": "^2.1.0",
+    "@tiptap/pm": "^2.2.1",
+    "@tiptap/react": "^2.2.1",
+    "@tiptap/starter-kit": "^2.2.1",
+    "axios": "^1.6.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "date-fns": "^3.3.1",
+    "eslint": "8.30.0",
+    "eslint-config-next": "13.1.1",
+    "ethers": "^6.10.0",
+    "froala-editor": "^4.1.4",
+    "lucide-react": "^0.321.0",
+    "next": "13.1.1",
+    "next-cloudinary": "^5.20.0",
+    "react": "18.2.0",
+    "react-day-picker": "^8.10.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.50.0",
+    "react-redux": "^9.1.0",
+    "react-toastify": "^10.0.4",
+    "swiper": "^11.0.6",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.13",
+    "daisyui": "^4.6.1",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4"
+  }
+}
