@@ -4,6 +4,7 @@
 
 - **Name:** Ashabul Yamin Raad
 - **Email address:** yamin.raad6109@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/yaminraad/
 
 ## Project Title: EventHub - An Event Management DApp
 
