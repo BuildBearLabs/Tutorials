@@ -21,7 +21,7 @@ const Dashboard = () => {
   const [fetchData, setFetchData] = useState(true);
   const [loader, setLoader] = useState(true);
   // contract information
-  const contractAddress = "0xB67B982508fBA0DcD296256c90de7173956F4db1";
+  const contractAddress = "0x3eEBEEC886f34282eF4E32239ec2B21A718C7dAB";
 
   useEffect(() => {
     if (fetchData) {

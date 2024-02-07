@@ -19,8 +19,6 @@ contract EventHub {
     // record of all events
     Event[] public allEvents;
 
-    // track events by creator
-
     // create an event
     function createEvent(string memory _title, string memory _description, string memory _eventImage, string memory _date, string memory _time, uint _eventCost, string memory _meetUrl, uint _ticketLimit) public {
         // store the new event temporarily

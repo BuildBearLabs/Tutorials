@@ -10,8 +10,8 @@ import contractABI from "../../../artifacts/contractABI.json";
 import { ethers } from "ethers";
 import dynamic from "next/dynamic";
 import { FailedToast, SuccessToast } from "@/utils/toast";
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const CreateEvent = () => {
   const [address, setAddress] = useState(
@@ -39,7 +39,7 @@ const CreateEvent = () => {
   }, []);
 
   // contract information
-  const contractAddress = "0xB67B982508fBA0DcD296256c90de7173956F4db1";
+  const contractAddress = "0x3eEBEEC886f34282eF4E32239ec2B21A718C7dAB";
 
   const updateEthers = async () => {
     const provider = new ethers.BrowserProvider(window.ethereum);
@@ -103,17 +103,17 @@ const CreateEvent = () => {
           );
 
           await tx.wait();
-          SuccessToast("Event Created Successfully")
-          Navigate.push('/events/view')
+          SuccessToast("Event Created Successfully");
+          Navigate.push("/events/view");
           setLoader(false);
         })
         .catch((err) => {
-          FailedToast(err.message)
+          FailedToast(err.message);
           setLoader(false);
         });
-      } catch (err) {
-        FailedToast(err.message)
-        setLoader(false);
+    } catch (err) {
+      FailedToast(err.message);
+      setLoader(false);
     }
   };
 
@@ -179,12 +179,18 @@ const CreateEvent = () => {
           Empowering You to Craft Unforgettable Events, Every Step of the Way
         </p>
       </div>
-      {
-      loader &&
-        <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", margin: "auto" }}>
+      {loader && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "auto",
+          }}
+        >
           <CircularProgress />
         </Box>
-      }
+      )}
       <div className="rounded-lg shadow-md min-h-[600px] max-w-[800px] m-auto p-5 flex flex-row flex-wrap justify-center md:justify-between bg-white">
         <div className="max-w-[400px] w-[100%] mr-3 mb-5">
           <div
@@ -244,7 +250,7 @@ const CreateEvent = () => {
                   src="/eventsbackground.png"
                   className="rounded-lg max-w[100%] max-w-[100%] w-[auto] sm:max-w-[300px]"
                   alt="events-background"
-                  style={{height: "auto", margin: "0 10px"}}
+                  style={{ height: "auto", margin: "0 10px" }}
                   // height={100} // Set the height property for the default image
                   // width={400} // Set the width property for the default image
                 />

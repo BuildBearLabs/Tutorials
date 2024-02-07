@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import contractABI from "../../../artifacts/contractABI.json";
 import axios from "axios";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 import { FailedToast } from "@/utils/toast";
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const TimeLine = () => {
   const [signer, setSigner] = useState(null);
@@ -16,7 +16,7 @@ const TimeLine = () => {
   const [loader, setLoader] = useState(false);
   // contract information
   const Navigate = useRouter();
-  const contractAddress = "0xB67B982508fBA0DcD296256c90de7173956F4db1";
+  const contractAddress = "0x3eEBEEC886f34282eF4E32239ec2B21A718C7dAB";
 
   useEffect(() => {
     if (fetchData) {
@@ -35,10 +35,10 @@ const TimeLine = () => {
           );
           setContract(contract);
           await getAllEvents(contract);
-          setLoader(false)
+          setLoader(false);
         } else {
-          FailedToast("Need to install MetaMask")
-          Navigate.push('/login')
+          FailedToast("Need to install MetaMask");
+          Navigate.push("/login");
         }
       };
 
@@ -79,7 +79,7 @@ const TimeLine = () => {
               };
             })
           );
-          const filteredData = FinalData.filter(event => {
+          const filteredData = FinalData.filter((event) => {
             const eventDate = new Date(event.date);
             return eventDate >= currentDate; // Keep events with dates on or after the current date
           });
@@ -98,15 +98,14 @@ const TimeLine = () => {
     <div>
       <div className="main">
         <h3 className="head">Upcomming Events</h3>
-          {
-            loader &&
-            <Box sx={{ display: 'flex', justify: "center", alignItem: "center" }}>
-              <CircularProgress />
-            </Box>
-          }
+        {loader && (
+          <Box sx={{ display: "flex", justify: "center", alignItem: "center" }}>
+            <CircularProgress />
+          </Box>
+        )}
         <div className="container">
-          {
-            !loader && <ul>
+          {!loader && (
+            <ul>
               {allEvents?.map((item, _idx) => (
                 <li key={_idx} className="relative">
                   <span className="date">{item.date}</span>
@@ -138,7 +137,7 @@ const TimeLine = () => {
                 </li>
               ))}
             </ul>
-          }
+          )}
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ const Login = () => {
   const userCredentials = useSelector((state) => state.userCredentials);
   console.log(userCredentials);
 
-  const contractAddress = "0xB67B982508fBA0DcD296256c90de7173956F4db1";
+  const contractAddress = "0x3eEBEEC886f34282eF4E32239ec2B21A718C7dAB";
 
   const connectWallet = () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
@@ -27,13 +27,13 @@ const Login = () => {
         .request({ method: "eth_requestAccounts" })
         .then((result) => {
           changeAccount(result[0]);
-          SuccessToast("Logined Successfully")
+          SuccessToast("Logined Successfully");
         })
         .catch((error) => {
-          FailedToast(error.message)
+          FailedToast(error.message);
         });
     } else {
-      FailedToast("Need to install MetaMask")
+      FailedToast("Need to install MetaMask");
     }
   };
 
