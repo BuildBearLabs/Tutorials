@@ -1,0 +1,19 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #150E28ED;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 30px;
+}
+
+@media screen and (max-width: 968px) {
+  .modal {
+    align-items: center;
+  }
+}

@@ -1,0 +1,180 @@
+.gl_rules {
+  height: 617px;
+  flex-shrink: 0;
+  background:
+    url(../../../../assets/Purple-Lens-Flare-PNG.png),
+    #150e28 -0.25px 0px / 130.652% 100%;
+  background-blend-mode: hard-light;
+  background-size: 1000px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.gl_rules_container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.gl_rules_left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 55%;
+  height: 100%;
+  padding: 0 0 10px 128px;
+}
+
+.gl_rules_left > h1 {
+  color: #fff;
+  font-family: "Clash Display", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.gl_rules_left > p {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.5px;
+  width: 80%;
+}
+
+.gl_rules_left > img {
+  position: absolute;
+}
+
+.rules.img_faint_star {
+  top: 23%;
+  left: 50%;
+}
+
+.rules.img_bright_star {
+  bottom: 22%;
+  right: 8%;
+}
+
+.gl_rules_right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 45%;
+  height: 100%;
+  background-image: url("../../../../assets/rules-lady.svg");
+  background-repeat: no-repeat;
+  background-size: 664px;
+  background-position: center;
+  z-index: 2;
+}
+
+.gl_rules_container > img {
+  position: absolute;
+  top: 14%;
+  right: 9%;
+}
+
+@media screen and (max-width: 968px) {
+  .gl_rules {
+    height: 817px;
+    flex-shrink: 0;
+    background:
+      url(../../../../assets/Purple-Lens-Flare-PNG.png),
+      #150e28 -0.25px 0px / 130.652% 100%;
+      background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-size: 600px;
+    background-position: right -100px top;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .gl_rules_container {
+    position: relative;
+    flex-direction: column-reverse;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gl_rules_left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 30px 0;
+  }
+
+  .gl_rules_left > h1 {
+    color: #fff;
+    font-family: "Clash Display", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px;
+  }
+
+  .gl_rules_left > p {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.5px;
+    text-align: center;
+    width: 80%;
+  }
+
+  .gl_rules_left > img {
+    position: absolute;
+  }
+
+  .rules.img_faint_star {
+    top: 23%;
+    left: 89%;
+    width: 15px;
+    height: 15px;
+  }
+
+  .rules.img_bright_star {
+    top: -52%;
+    left: 8%;
+    width: 15px;
+    height: 15px;
+  }
+
+  .gl_rules_right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../assets/rules-lady.svg");
+    background-repeat: no-repeat;
+    background-size: 364px;
+    background-position: center;
+    z-index: 2;
+    padding: 30px 0;
+  }
+
+  .gl_rules_container > img {
+    display: none;
+  }
+}
