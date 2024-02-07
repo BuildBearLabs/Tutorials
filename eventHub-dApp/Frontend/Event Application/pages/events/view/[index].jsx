@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import AlertDialog from "components/ui/EmailDialog";
 import contractABI from "../../../artifacts/contractABI.json";
 import { ethers } from "ethers";
 import axios from "axios";
@@ -13,9 +12,6 @@ import Box from "@mui/material/Box";
 const eventDetail = () => {
   const router = useRouter();
   const [eventId, setEventID] = useState(null);
-  const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
@@ -105,30 +101,10 @@ const eventDetail = () => {
         { value: ethers.parseEther(updatedCost) }
       );
       await tx.wait();
-      axios
-        .post(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/send-email`,
-          {
-            email: email,
-            name: name,
-            eventName: event.title,
-            date: event.date,
-            time: event.time,
-            meetingUrl: event.meetUrl,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          }
-        )
-        .then(() => {
-          SuccessToast("Registered Successfully");
-          router.push("/");
-        });
+      SuccessToast("Registered Successfully");
+      router.push("/");
     } catch (err) {
-      FailedToast("Error in registering");
+      FailedToast("The event organizer cannot register.");
     }
   };
 
@@ -157,7 +133,7 @@ const eventDetail = () => {
           <div className="flex justify-center mt-10">
             <div
               onClick={() => {
-                setOpen(true);
+                registerForEvent();
               }}
               className="py-2 px-4 text-center rounded-3xl duration-150 text-white text-bold text-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 mb-5 hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:ring ring-transparent ring-offset-2 transition flex justify-center w-[170px] cursor-pointer"
             >
@@ -201,16 +177,6 @@ const eventDetail = () => {
           </div>
         </>
       )}
-      <AlertDialog
-        open={open}
-        setOpen={setOpen}
-        email={email}
-        setEmail={setEmail}
-        name={name}
-        setName={setName}
-        eventHeading={event.title}
-        registerForEvent={registerForEvent}
-      />
     </div>
   );
 };
