@@ -16,7 +16,7 @@ const TimeLine = () => {
   const [loader, setLoader] = useState(false);
   // contract information
   const Navigate = useRouter();
-  const contractAddress = "0x3eEBEEC886f34282eF4E32239ec2B21A718C7dAB";
+  const contractAddress = "0xA6C2C14a5b93f013b7c5A650966FF9c5536D5a57";
 
   useEffect(() => {
     if (fetchData) {

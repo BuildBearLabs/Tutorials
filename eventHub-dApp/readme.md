@@ -2,29 +2,16 @@
 
 ## Important information
 
-- **Smart contract address**: 0x3eEBEEC886f34282eF4E32239ec2B21A718C7dAB
-
-## Project setup guide
-
-- Clone the project.
-- Navigate to the "Frontend/Event Applcation" directory.
-- Create a .env file into the project directory and paste the following environment variables:
-
-```yaml
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME  = dlv0dshiq
-NEXT_PUBLIC_BACKEND_URL = https://urlshortner12-ae1c0b538b3a.herokuapp.com
-```
-
-- Run "pnpm install" to install the dependencies.
-- Run "pnpm dev" to start the localhost server.
+- **Live website link**:
+- **Smart contract address**: 0xA6C2C14a5b93f013b7c5A650966FF9c5536D5a57
+- **BuildBear RPC URL**: https://explorer.buildbear.io/changing-mysterio-3fd2d4d2/transactions
 
 ## Features
 
 ### Buildbear features:
 
-- Used LokiCode to create a BuildBear sandbox.
-- Forked ethereum mainnet for creating the sandbox.
-- Deployed the smart contract on the sandbox network.
+- Forked ethereum mainnet using BuildBear sandbox.
+- Deployed the smart contract on the BuildBear sandbox.
 
 ### DApp features:
 
