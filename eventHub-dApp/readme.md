@@ -2,7 +2,7 @@
 
 ## Important information
 
-- **Live website link**:
+- **Live website link**: https://event-hub-mu.vercel.app/
 - **Smart contract address**: 0xA6C2C14a5b93f013b7c5A650966FF9c5536D5a57
 - **BuildBear RPC URL**: https://explorer.buildbear.io/changing-mysterio-3fd2d4d2/transactions
 
