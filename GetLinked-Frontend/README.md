@@ -2,6 +2,10 @@
 
 [Live](https://get-linked-prechallenge.vercel.app/)
 
+# Detail
+
+Getlinked is the hackathon prechallenge frontend project haivng login and registration part in the navigation bar and also having different animated designed section in the landing page.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
