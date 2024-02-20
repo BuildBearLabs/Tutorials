@@ -25,6 +25,7 @@ pub struct Miner {
 }
 
 impl Miner {
+    // Attempts to find a nonce that is required to achieve the target.
     pub async fn mine(txns: Vec<Txn>, previous_block: Block, node_address: SocketAddr) -> Block {
         let merkle_root = MerkleRoot::from(txns.clone());
         let mut block = Block::new(previous_block.block_header.current_hash.clone(), txns);
@@ -118,10 +119,11 @@ impl Miner {
     }
 }
 
+// Structure of a Node
 pub struct Node {
-    address: SocketAddr,
-    mempool: HashSet<Txn>,
-    state: BlockChain,
+    address: SocketAddr,   // address of the node
+    mempool: HashSet<Txn>, // when a transaction is created, it is added to the mempool. Miner task picks up transactions from the mempool.
+    state: BlockChain,     // local state copy of the node
     miner: Miner,
 }
 
@@ -144,6 +146,8 @@ impl Node {
     pub async fn run(&mut self) -> JoinHandle<()> {
         self.run_miner();
 
+        // Why select macro is used?
+        // If we have many more tasks running, then select will look for any task that has been completed
         loop {
             tokio::select! {
                 // Receive block from miner thread
@@ -196,7 +200,11 @@ impl Node {
             Some(block) => {
                 info!("Restarting miner thread...");
                 let block = block.clone();
+
+                // getting transactions from the mempool
                 let txns = self.mempool.clone().into_iter().collect();
+
+                // cloning this to send to miner thread. If found valid nonce, it is used to send the mined block to main thread.
                 let block_sender = self.miner.block_sender.clone();
                 let node_address = self.address;
                 self.miner.task = tokio::spawn(async move {
@@ -207,6 +215,7 @@ impl Node {
                 });
             }
 
+            // If None, then there is no block before. So, genesis block is mined.
             None => {
                 info!("Mining genesis block!");
                 let block_sender = self.miner.block_sender.clone();

@@ -23,6 +23,7 @@ pub struct BlockHeader {
     pub difficulty: u8,
 }
 
+// Structure of a Block
 #[derive(Debug, Clone, Serialize, Deserialize, Hash)]
 pub struct Block {
     pub block_header: BlockHeader,
@@ -30,6 +31,7 @@ pub struct Block {
 }
 
 impl Block {
+    // Construct a new block with given transactions.
     pub fn new(previous_hash: String, txn_data: Vec<Txn>) -> Block {
         let random = thread_rng().gen::<u32>();
         let block_header = BlockHeader {
@@ -60,6 +62,7 @@ impl MerkleRoot {
         String::new()
     }
 
+    // Computes merkle root from given list of transactions
     pub fn from(txns: Vec<Txn>) -> String {
         let mut txns = txns;
         if txns.is_empty() {
@@ -126,6 +129,7 @@ impl MerkleRoot {
     }
 }
 
+// Increments index everytime a new block is created. Wrapped by unsafe because mutating a static value is unsafe.
 fn update_index() -> u32 {
     unsafe {
         let pre_level = BLOCK_INDEX;

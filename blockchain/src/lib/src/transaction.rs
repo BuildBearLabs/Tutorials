@@ -3,6 +3,7 @@ use rand::{thread_rng, Rng};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
+// Structure of a transaction
 #[derive(Debug, Clone, Default, Serialize, Deserialize, Hash, PartialEq, Eq)]
 pub struct Txn {
     pub id: String,
@@ -23,6 +24,7 @@ impl Txn {
         }
     }
 
+    // computes Transaction id
     pub fn with_id(id: String, sender: String, receiver: String, amount: u32) -> Self {
         Self {
             id,
@@ -45,6 +47,8 @@ impl Txn {
         hash
     }
 
+    // As there is no functionality for a client to send transactions to a node (because of the limited time for submission),
+    // random transactions are generated
     pub fn generate_txns(num: usize) -> Vec<Txn> {
         let mut rng = thread_rng();
 
@@ -70,6 +74,7 @@ impl Txn {
     }
 }
 
+// Structure of a Coinbase transaction. It is usually the local node.
 #[derive(Debug, Clone, Serialize, Deserialize, Hash, PartialEq, Eq)]
 pub struct CoinbaseTxn {
     pub amount: u8,

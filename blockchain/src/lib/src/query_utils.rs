@@ -3,6 +3,7 @@ use clap::Parser;
 use serde::Deserialize;
 use serde::Serialize;
 
+// Response Variants
 #[derive(Debug, Serialize, Deserialize)]
 pub enum Response {
     Txn {
@@ -25,6 +26,7 @@ pub enum Response {
     },
 }
 
+// Request Variants
 #[derive(Parser, Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub enum Command {
     Txn { id: String },

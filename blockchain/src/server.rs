@@ -31,6 +31,7 @@ async fn main() {
     server.await.unwrap();
 }
 
+// Starting the node
 async fn init_node(server: SocketAddr) -> JoinHandle<()> {
     let mut node = Node::new(server).await;
     let node_handle = tokio::spawn(async move {

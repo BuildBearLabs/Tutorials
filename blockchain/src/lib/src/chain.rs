@@ -1,3 +1,5 @@
+use std::time::Duration;
+
 use crate::block::*;
 use crate::transaction::*;
 
@@ -11,6 +13,7 @@ use sha2::{Digest as _, Sha256};
 
 const DATABASE_PATH: &'static str = "/tmp/db";
 
+// Structure of a Blockchain
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BlockChain {
     pub blocks: Vec<Block>,
@@ -21,6 +24,7 @@ impl BlockChain {
         Self { blocks: vec![] }
     }
 
+    // Gives the latest block hash of the chain
     pub fn tip(&self) -> String {
         self.blocks
             .last()
@@ -34,12 +38,23 @@ impl BlockChain {
         self.blocks.clone()
     }
 
+    // Writes the latest mined block to the databse for persistent storage.
     pub async fn write_to_db(block: Block) {
         tokio::spawn(async move {
             let mut opts = Options::default();
             opts.create_if_missing(true);
 
-            let db = DB::open(&opts, DATABASE_PATH).expect("Failed to open database");
+            let db = loop {
+                match DB::open(&opts, DATABASE_PATH) {
+                    Ok(db) => {
+                        break db;
+                    }
+                    Err(e) => {
+                        tokio::time::sleep(Duration::from_millis(100)).await;
+                        continue;
+                    }
+                }
+            };
 
             // Having block index as the key.
             let block_key = bincode::serialize(&block.block_header.index).unwrap();
@@ -50,6 +65,7 @@ impl BlockChain {
         });
     }
 
+    // Appends latest block to the chain and writes the new block to database.
     pub async fn add_block(&mut self, new_block: Block) -> Result<Self> {
         match self.blocks.last() {
             Some(previous_block) => {
@@ -114,6 +130,7 @@ impl BlockChain {
     }
 }
 
+// Displays the latest state of the blockchain.
 impl std::fmt::Display for BlockChain {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(

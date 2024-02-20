@@ -8,6 +8,7 @@ use log::info;
 use rocksdb::DB;
 use tokio_util::codec::LengthDelimitedCodec;
 use std::net::{IpAddr, Ipv4Addr, SocketAddr};
+use std::time::Duration;
 use tokio_util::codec::Framed;
 use futures::stream::SplitSink;
 use futures::SinkExt as _;
@@ -31,16 +32,27 @@ struct Cli {
     address: IpAddr,
 }
 
-async fn handle(stream: TcpStream, remote_address: SocketAddr) -> Result<()> {
-    let (mut writer, mut reader) = Framed::new(stream, LengthDelimitedCodec::new()).split();
+// Responsible for handling each client stream
+async fn handle(mut stream: TcpStream, remote_address: SocketAddr) -> Result<()> {
+    let mut buffer = Vec::new();
 
-    let buffer = reader.next().await.unwrap().unwrap().freeze();
+    stream.read_to_end(&mut buffer).await?; 
 
-    let db = DB::open_default(DB_PATH).expect("Cannot open database");
+    let db = loop {
+        match DB::open_default(DB_PATH) {
+            Ok(db) => {
+                break db;
+            },
+            Err(_) => {
+                tokio::time::sleep(Duration::from_millis(100)).await;
+                continue;
+            }
+        }
+    };
     
     info!("Opening database...");
     
-    match bincode::deserialize(&buffer).expect("Failed to deserialize the request") {
+    match bincode::deserialize(&buffer[..]).expect("Failed to deserialize the request") {
         Command::Txn { id } => {
             info!("Received txn query from client: {}", remote_address);
             let mut blocks = Vec::new();
@@ -52,6 +64,8 @@ async fn handle(stream: TcpStream, remote_address: SocketAddr) -> Result<()> {
                 block_index += 1;
             }
 
+            let mut txn_data = Vec::new();
+
             let block = blocks
                 .into_iter()
                 .filter(|block| {
@@ -60,6 +74,10 @@ async fn handle(stream: TcpStream, remote_address: SocketAddr) -> Result<()> {
                     let _ = block.body.txn_data.iter().map(|txn| {
                         let has_txn = txn.id == id;
                         contains |= has_txn;
+
+                        if has_txn {
+                            txn_data.push(txn.clone());
+                        }
                     });
 
                     contains
@@ -67,18 +85,13 @@ async fn handle(stream: TcpStream, remote_address: SocketAddr) -> Result<()> {
                 .collect::<Vec<Block>>();
 
             let block = block[0].clone();
-
-            let response = Response::Block {
-                index: block.block_header.index,
-                block_hash: block.block_header.current_hash.clone(),
-                timestamp: block.block_header.timestamp,
-                coinbase_txn: block.block_header.coinbase_txn.clone(),
-                merkle_root: block.block_header.merkle_root.clone(),
-                txns: block.body.txn_data.clone(),
-            };
-
+            let txn = txn_data[0].clone();
+            let response = Response::Txn { sender: txn.sender.clone(), receiver: txn.receiver.clone(), value: txn.amount, block_index: block.block_header.index, block_hash: block.block_header.current_hash.clone(), block_root: block.block_header.merkle_root.clone(), validator: block.block_header.coinbase_txn.validator.clone() };
+            
+            // serializes the response
             let msg = bincode::serialize(&response)?;
-
+            
+            // writes response into the client stream.
             writer.send(msg.into()).await?;
         }
 
@@ -97,14 +110,17 @@ async fn handle(stream: TcpStream, remote_address: SocketAddr) -> Result<()> {
 
                 let msg = bincode::serialize(&response)?;
 
-                writer.send(msg.into()).await?;
+                stream.write_all(msg.into()).await?;
             }
+
+            // If None, 0 is sent indicating the failure of query.
             None => {
-                writer.send(vec![0u8].into()).await?;
+                stream.write_all(vec![0u8].into()).await?;
             }
         },
     }
 
+    // If reached here, either the response or zero is sent to the client. So, we log this.
     info!("Responded to {}", remote_address);
 
     Ok(())
@@ -120,6 +136,8 @@ async fn main() {
 
     let listener = TcpListener::bind(server_address).await.unwrap();
 
+    // Listening for new connection. Will create a separate thread for each connection and handles the request accordingly.
+    // This is what makes the server more scalable and can handle massive connections smoothly.
     loop {
         match listener.accept().await {
             Ok((stream, address)) => {
