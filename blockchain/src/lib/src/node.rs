@@ -14,8 +14,7 @@ const REWARD: u8 = 50;
 pub struct Miner {
     // Why task joinhandle required?
     // Because we need to have a control over the miner task.
-    // For example, when we need to abort the mining task because another peer has already mined,
-    // we need to abort the mining task running in the node.
+    // Whenever a new block is mined, we use join handle to abort the task and restart to mine new block
     task: JoinHandle<()>,
 
     // Channel to send and receiver blocks.
@@ -191,6 +190,7 @@ impl Node {
     }
 
     async fn stop_and_restart(&mut self) {
+        // aborting the miner task when a block is mined and then restarted.
         self.miner.task.abort();
         self.run_miner();
     }

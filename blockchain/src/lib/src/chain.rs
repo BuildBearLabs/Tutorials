@@ -34,6 +34,7 @@ impl BlockChain {
             .clone()
     }
 
+    // gives the local copy of the blockchain as there is only one node.
     pub fn all_blocks_in_longest_chain(&self) -> Vec<Block> {
         self.blocks.clone()
     }
@@ -75,7 +76,7 @@ impl BlockChain {
                 }
                 self.blocks.push(new_block.clone());
                 let index = new_block.block_header.index;
-                Self::write_to_db(new_block).await;
+                Self::write_to_db(new_block).await; // writing to disk
 
                 info!("Block {} uploaded to database", index);
 
@@ -83,7 +84,7 @@ impl BlockChain {
             }
             None => {
                 self.blocks.push(new_block.clone());
-                Self::write_to_db(new_block).await;
+                Self::write_to_db(new_block).await; // writing to disk
 
                 info!("Genesis block uploaded to database");
 
@@ -92,6 +93,7 @@ impl BlockChain {
         }
     }
 
+    // computes block hash: SHA256(index || previous hash || difficulty || timestamp || nonce || txns)
     pub fn hash_block(block: Block) -> Vec<u8> {
         let mut hasher = Sha256::new();
         hasher.update(&block.block_header.index.to_string().as_bytes());
@@ -118,6 +120,7 @@ impl BlockChain {
         hex::encode(hash)
     }
 
+    //computes transaction hash: SHA256(id || sender || receiver || amount)
     pub fn hash_txn(txn: &Txn) -> String {
         let mut hasher = Sha256::new();
         hasher.update(txn.id.as_bytes());

@@ -14,7 +14,7 @@ use futures::stream::SplitSink;
 use futures::SinkExt as _;
 use futures::StreamExt as _;
 use tokio::{
-    io::AsyncWriteExt,
+    io::{AsyncWriteExt, AsyncReadExt},
     net::{TcpListener, TcpStream},
 };
 
@@ -92,7 +92,7 @@ async fn handle(mut stream: TcpStream, remote_address: SocketAddr) -> Result<()>
             let msg = bincode::serialize(&response)?;
             
             // writes response into the client stream.
-            writer.send(msg.into()).await?;
+            stream.write_all(&msg[..]).await?;
         }
 
         Command::Block { index } => match db.get(bincode::serialize(&index).unwrap())? {
@@ -110,12 +110,12 @@ async fn handle(mut stream: TcpStream, remote_address: SocketAddr) -> Result<()>
 
                 let msg = bincode::serialize(&response)?;
 
-                stream.write_all(msg.into()).await?;
+                stream.write_all(&msg[..]).await?;
             }
 
             // If None, 0 is sent indicating the failure of query.
             None => {
-                stream.write_all(vec![0u8].into()).await?;
+                stream.write_all(&[0u8]).await?;
             }
         },
     }
