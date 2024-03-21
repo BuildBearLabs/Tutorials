@@ -1,0 +1,20 @@
+{
+  "name": "hardhat-viem-stater",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "dev": "npx hardhat watch ci",
+    "build": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run scripts/deploy.ts --network localhost",
+    "ganache": "npx hardhat run scripts/deploy.ts --network ganache",
+    "start": "npx hardhat node"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
+    "hardhat": "^2.19.5",
+    "hardhat-watcher": "^2.5.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "sandboxId": "stable-nightcrawler-41bc5b6a",
+  "chainId": 14853,
+  "rpcUrl": "https://rpc.buildbear.io/stable-nightcrawler-41bc5b6a",
+  "faucetUrl": "https://faucet.buildbear.io/stable-nightcrawler-41bc5b6a",
+  "explorerUrl": "https://explorer.buildbear.io/stable-nightcrawler-41bc5b6a",
+  "verificationUrl": "https://api.buildbear.io/v1/api/verify/etherscan/stable-nightcrawler-41bc5b6a",
+  "forkingChainId": 1
+}

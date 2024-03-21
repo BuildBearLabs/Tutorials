@@ -1,0 +1,33 @@
+
+ Contract deployment: NumberStorage
+  Contract address:    0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Transaction:         0x45e0534af1be3b5bd0373cb51ce03de4256739e16db5e955b8c5cba7dc161c0b
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            316747 of 30000000
+  Block #1:            0x2afe6e5e90ca71bfcaf82ffe69bbc2f0bd7bc392a128a8d722bdd7c1002d2f13
+
+  console.log:
+    Initial Balance:  20
+
+ Contract deployment: ERC20Basic
+  Contract address:    0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+  Transaction:         0x2ed20df6955906acc60f88dbb41dd543d5b00279d233344a375e2321005ee5b6
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            897335 of 30000000
+  Block #2:            0x812ca5a37edf07687aeb3fd2c3e1a809750d2daba8531c1677cb6e45cb3871fd
+
+  console.log:
+    Smart Contract ERC20Basic dployed with initial totalSupply : 200 
+
+ Contract deployment: ERC20Basic
+  Contract address:    0x0165878a594ca255338adfa4d48449f69242eb8f
+  Transaction:         0x9eef880c0996235d56ce3736598af14118b6c80695378af4dc988307ca8e7776
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1050526 of 30000000
+  Block #7:            0xa82b0a767cfd4edfd908bd95bcac4dbf68b59bf45b8e4753f5acb754bc2d50ad
+
+  console.log:
+    Smart Contract ERC20Basic deployed with initial totalSupply : 200     
