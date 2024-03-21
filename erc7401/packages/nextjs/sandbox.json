@@ -1,0 +1,9 @@
+{
+  "sandboxId": "steady-siryn-fd4830ae",
+  "chainId": 15828,
+  "rpcUrl": "https://rpc.buildbear.io/steady-siryn-fd4830ae",
+  "faucetUrl": "https://faucet.buildbear.io/steady-siryn-fd4830ae",
+  "explorerUrl": "https://explorer.buildbear.io/steady-siryn-fd4830ae",
+  "verificationUrl": "https://api.buildbear.io/v1/api/verify/etherscan/steady-siryn-fd4830ae",
+  "forkingChainId": 11155111
+}
