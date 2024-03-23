@@ -1,0 +1,307 @@
+.close_menu_icon_mobile,
+.open_menu_icon_mobile {
+  display: none;
+}
+
+.gl_header {
+  /* position: fixed; */
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 128px 25px 128px;
+  height: 17%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.gl_header.contact,
+.gl_header.register {
+  border-bottom: none;
+}
+
+.gl_logo > img {
+  cursor: pointer;
+}
+
+/*-----------------
+  Nav List
+ ------------------*/
+
+.navbar_menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.navbar_links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.navbar_link {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  position: relative;
+  margin: 0;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar_link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #d434fe;
+  top: 25px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar_link:hover {
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.navbar_link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.active {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background: linear-gradient(90deg, #903aff 3.08%, #ff26b9 93.85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*-----------------
+  Register Button 
+ ------------------*/
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  position: relative;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 4px;
+  background: linear-gradient(#9a39ff, #ff29b9);
+}
+
+.btn-flip:hover::after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover::before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip::after {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  opacity: 0;
+  flex-shrink: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  position: absolute;
+  background: #150e28;
+  content: attr(data-back);
+  transform: translateY(-50%) rotateX(90deg);
+}
+
+.btn-flip::before {
+  color: #fff;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 172px;
+  height: 53px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  transition: 0.5s;
+  background: linear-gradient(
+    270deg,
+    #903aff 0%,
+    #d434fe 56.42%,
+    #ff26b9 99.99%,
+    #fe34b9 100%
+  );
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
+}
+
+/*--------------------------
+  Register Button - Active 
+ ---------------------------*/
+
+.btn-flip.register {
+  opacity: 1;
+  outline: 0;
+  position: relative;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background: linear-gradient(#9a39ff, #ff29b9);
+}
+
+.btn-flip.register::after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+.btn-flip.register::before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+
+@media screen and (max-width: 968px) {
+  .gl_header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    height: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+  }
+
+  .gl_logo > img {
+    width: 100px;
+  }
+
+  .navbar_menu {
+    display: none;
+  }
+
+  .close_menu_icon_mobile {
+    /* position: fixed; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    z-index: 999;
+    border: 1px solid #ff26b9;
+    border-radius: 50%;
+  }
+
+  .open_menu_icon_mobile {
+    /* position: fixed; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    width: 25px;
+    height: 25px;
+  }
+
+  .mobile_gl_header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 492px;
+    background-color: #150e28;
+    padding: 150px 50px 0 50px;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .mobile_navbar_menu {
+    height: 220px;
+  }
+
+  .navbar_links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 60%;
+    margin-bottom: 20px;
+  }
+  .navbar_link {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    position: relative;
+    margin-bottom: 25px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .mobile_btn-flip {
+    width: 172px;
+    height: 53px;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+  }
+
+  .mobile_btn-flip.register {
+    background: none;
+    border: 2px solid #ff29b9;
+  }
+}

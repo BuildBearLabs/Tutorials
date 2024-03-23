@@ -1,0 +1,420 @@
+.gl_hero {
+  display: flex;
+  padding-top: 130px;
+  height: 810px;
+  background:
+    url(../../../../assets/Purple-Lens-Flare-PNG.png),
+    #150e28 -0.25px 0px / 130.652% 100% no-repeat;
+  background-blend-mode: hard-light;
+  background-repeat: no-repeat;
+  background-size: 1000px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.gl_hero > h3 {
+  position: absolute;
+  top: 18%;
+  right: 5%;
+  color: #fff;
+  font-size: 33px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.gl_hero img {
+  position: absolute;
+}
+
+/*----- Stars -------*/
+.hero.img_stroke {
+  top: 23.5%;
+  right: 6%;
+}
+.hero.img_bright_star {
+  top: 23.5%;
+  left: 13%;
+}
+.hero.img_faint_star {
+  top: 30%;
+  right: 41%;
+}
+.hero.img_bulb {
+  top: 31.8%;
+  left: 609px;
+}
+.hero.img_chain {
+  top: 49%;
+  left: 670px;
+}
+.hero.img_pow {
+  top: 50%;
+  left: 760px;
+}
+.hero.img_faint_star2 {
+  bottom: 18%;
+  left: 38%;
+}
+
+.gl_hero_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.gl_hero_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 60%;
+  height: 100%;
+  padding: 0 0 30px 128px;
+}
+
+.gl_hero_left > h1 {
+  color: #fff;
+  font-family: "Clash Display", sans-serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 90px;
+  margin-bottom: 10px;
+}
+
+.gl_hero_left > p {
+  color: #fff;
+  font-size: 19.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 166%;
+  word-wrap: break-word;
+  width: 70%;
+  margin-bottom: 40px;
+}
+
+.gl_hero_left > button {
+  width: 172px;
+  height: 53px;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 40px;
+  transition: all 0.5s;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.gl_hero_left > button:after {
+  content: "→";
+  position: absolute;
+  opacity: 0;
+  top: 18px;
+  right: -30px;
+  transition: 0.5s;
+}
+
+.gl_hero_left > button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.gl_hero_left > button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.gr_hero_countdown_clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gr_hero_countdown_clock > p {
+  color: #fff;
+  font-family: "Unica One", sans-serif;
+  font-style: normal;
+  line-height: normal;
+  margin: 0 22px 0 0;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 133%;
+}
+
+._clock_indicator {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 133%;
+}
+
+.gl_hero_right {
+  background:
+    url(../../../../assets/Purple-Lens-Flare-PNG.png),
+    #150e28 -0.25px 0px / 130.652% 100% no-repeat;
+  background-blend-mode: hard-light;
+  background-repeat: no-repeat;
+  background-size: 800px;
+  height: 100%;
+  width: 40%;
+  padding-top: 40px;
+}
+
+.gl_hero_right_images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.gl_hero_right_images > img {
+  position: absolute;
+  height: 70%;
+  bottom: 0;
+  right: 0;
+}
+.gl_hero_right_images > img:last-child {
+  position: absolute;
+  height: 70%;
+  bottom: 4.8%;
+  right: 2.5%;
+}
+
+@media screen and (max-width: 968px) {
+  .gl_hero {
+    display: flex;
+    justify-content: center;
+    padding-top: 130px;
+    width: 100%;
+    height: 870px;
+    background:
+      url(../../../../assets/Purple-Lens-Flare-PNG.png),
+      #150e28 -0.25px 0px / 130.652% 100% no-repeat;
+    background-blend-mode: hard-light;
+    background-repeat: no-repeat;
+    background-position: top 50px left -100px;
+    background-size: 500px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .gl_hero > h3 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 12%;
+    left: 0;
+    color: #fff;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+    width: 100%;
+  }
+
+  .gl_hero img {
+    position: absolute;
+  }
+
+  /*----- Stars -------*/
+  .hero.img_stroke {
+    top: 15%;
+    right: 10%;
+    width: 115px;
+  }
+  .hero.img_bright_star {
+    top: 20%;
+    left: 28%;
+    height: 15px;
+    width: 15px;
+  }
+  .hero.img_faint_star {
+    top: 18%;
+    right: 14%;
+    height: 10px;
+    width: 10px;
+  }
+  .hero.img_bulb {
+    top: 21.5%;
+    left: 73%;
+    width: 20px;
+    height: 20px;
+  }
+  .hero.img_chain {
+    display: none;
+  }
+  .hero.img_pow {
+    display: none;
+  }
+
+  .hero.img_faint_star2 {
+    top: 46%;
+    left: 80%;
+    width: 10px;
+    height: 10px;
+  }
+
+  .gl_hero_container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gl_hero_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 60px 0 0 0;
+  }
+
+  .gl_hero_left > h1 {
+    color: #fff;
+    font-family: "Clash Display", sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 10px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+  }
+
+  .gl_hero_left > h1 > span {
+    position: relative;
+  }
+
+  .hero.mobile_img_chain {
+    margin-left: 2px;
+    margin-bottom: -5px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  .hero.mobile_img_pow {
+    margin-bottom: -5px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+
+  .gl_hero_left > p {
+    color: #fff;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 166%;
+    word-wrap: break-word;
+    width: 82%;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .gl_hero_left > button {
+    width: 172px;
+    height: 53px;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+  }
+
+  .gl_hero_left > button:after {
+    content: "→";
+    position: absolute;
+    opacity: 0;
+    top: 14px;
+    right: -30px;
+    transition: 0.5s;
+  }
+
+  .gl_hero_left > button:hover {
+    padding-right: 24px;
+    padding-left: 8px;
+  }
+
+  .gl_hero_left > button:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+
+  .gr_hero_countdown_clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gr_hero_countdown_clock > p {
+    color: #fff;
+    font-family: "Unica One", sans-serif;
+    font-style: normal;
+    line-height: normal;
+    margin: 0 20px 20px 0;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 133%;
+  }
+
+  ._clock_indicator {
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 133%;
+  }
+
+  .gl_hero_right {
+    background: none;
+    height: 100%;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .gl_hero_right_images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .gl_hero_right_images > img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+  }
+  .gl_hero_right_images > img:last-child {
+    position: absolute;
+    height: 100%;
+    top: 0%;
+    right: 2.5%;
+  }
+}

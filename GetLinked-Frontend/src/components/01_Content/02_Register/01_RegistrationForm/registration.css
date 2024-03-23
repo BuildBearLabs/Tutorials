@@ -1,0 +1,294 @@
+.gl_register {
+  display: flex;
+  height: 100%;
+}
+
+.gl_register_container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.gl_register_container > img {
+  position: absolute;
+}
+
+/* Stars | Left Div */
+.register.img_purple_star {
+  left: 8%;
+  top: 28%;
+}
+.register.img_faint_star {
+  left: 12%;
+  bottom: 8%;
+}
+.register.img_dark_purple_star {
+  left: 38.5%;
+  top: 77%;
+  width: 23px;
+  height: 23px;
+}
+
+.gl_registration_image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 43%;
+  height: 100%;
+  padding: 15% 0 0 100px;
+  background:
+    url(../../../../assets/contact-top-left-Purple-Lens-Flare-PNG.svg),
+    #150e28 -0.25px 0px / 130.652% 100%;
+  background-blend-mode: hard-light;
+  background-repeat: no-repeat;
+  background-size: 700px;
+  background-position: left;
+}
+
+.gl_registration_image_inner {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+}
+
+.gl_register_form {
+  position: relative;
+  display: flex;
+  width: 57%;
+  height: 100%;
+  padding: 6% 100px 40px 0;
+  background:
+    url(../../../../assets/contact-form-bottom-right-gradient.png),
+    #150e28 -0.25px 0px / 130.652% 100%;
+  background-blend-mode: hard-light;
+  background-repeat: no-repeat;
+  background-size: 700px;
+  background-position: bottom right;
+}
+
+.gl_register_form_container {
+  display: flex;
+  flex-direction: column;
+  width: 710px;
+  height: auto;
+  margin-top: 60px;
+  border-radius: 12px;
+  padding: 55px 70px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.gl_register_form_inner {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gl_register_form_inner > h1 {
+  color: #d434fe;
+  font-family: "Clash Display", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.gl_movement_div {
+  display: flex;
+  position: relative;
+  margin-bottom: 12px;
+  align-items: flex-end;
+}
+
+.gl_part_of_move_p {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0 4px 4px 0;
+}
+
+.register_form_icon {
+  width: 100px;
+}
+
+.gl_create_account_p {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 25px;
+}
+
+.gl_register_inner_form_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gl_register_left_form_div,
+.gl_register_right_form_div {
+  display: flex;
+  flex-direction: column;
+  width: 47.5%;
+  height: auto;
+}
+
+.gl_register_left_form_div_items,
+.gl_register_right_form_div_items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.gl_register_left_form_div_items > label,
+.gl_register_right_form_div_items > label {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.gl_register_left_form_div_items > input,
+.gl_register_right_form_div_items > input,
+.gl_register_left_form_div_items > select,
+.gl_register_right_form_div_items > select {
+  width: 100%;
+  height: 47px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 0 20px;
+  color: #fff;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  transition: 0.5s;
+}
+
+.gl_register_left_form_div_items > input::placeholder,
+.gl_register_right_form_div_items > input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 12px;
+}
+
+.gl_register_left_form_div_items > input:hover,
+.gl_register_right_form_div_items > input:hover,
+.gl_register_left_form_div_items > select:hover,
+.gl_register_right_form_div_items > select:hover {
+  border: 1px solid #d434fe;
+  transition: 0.5s;
+}
+
+.gl_register_left_form_div_items > input:focus,
+.gl_register_right_form_div_items > input:focus,
+.gl_register_left_form_div_items > select:focus,
+.gl_register_right_form_div_items > select:focus {
+  border: 1px solid #ff26b9;
+  transition: 0.5s;
+}
+
+.gl_register_left_form_div_items > select,
+.gl_register_right_form_div_items > select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../../../../assets/select-icon.svg");
+  background-repeat: no-repeat;
+  background-position: top 50% right 6%;
+  cursor: pointer;
+}
+
+.gl_review_p {
+  color: #ff26b9;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+.gl_agreement_div {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.gl_agreement_div > input {
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #ff26b9;
+}
+
+.gl_agreement_div > label {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.gl_register_form_submit {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 53px;
+}
+
+.register_submit_btn {
+  width: 100%;
+  height: 53px;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s;
+}
+
+.register_submit_btn:hover {
+  transform: scale(1.03);
+  transition: 0.5s;
+  background: transparent;
+  border: 2px solid #ff26b9;
+}
+
+.gl_register_form > img {
+  position: absolute;
+}
+
+/* Stars | Right Div */
+.register.img_faint_star2 {
+  right: 40%;
+  top: 20%;
+}
+.register.img_bright_star {
+  right: 23%;
+  bottom: 4%;
+  height: 10px;
+  width: 10px;
+}
+
+
+@media screen and (max-width: 968px) {}

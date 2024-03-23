@@ -1,0 +1,53 @@
+{
+  "name": "getlinked",
+  "version": "0.1.0",
+  "private": true,
+  "lint": "eslint .",
+  "lint:fix": "eslint --fix",
+  "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "axios": "^1.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hooks-window-size": "^0.3.0",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.0.3"
+  }
+}
