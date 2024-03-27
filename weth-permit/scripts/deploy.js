@@ -9,9 +9,7 @@ async function deploy() {
     const token = await ethers.getContractFactory('WETH');
     const tokenInstance = await token.deploy();
     console.log(`Contract deployed to ${tokenInstance.address}`);
-    await run(`verify:verify`, {
-        address: tokenInstance.address
-    });
+  
 
 }
 
