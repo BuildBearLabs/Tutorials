@@ -1,0 +1,9 @@
+{
+  "testnetId": "fuzzy-vulture-02f83b07",
+  "chainId": 16154,
+  "rpcUrl": "https://rpc.buildbear.io/fuzzy-vulture-02f83b07",
+  "faucetUrl": "https://faucet.buildbear.io/fuzzy-vulture-02f83b07",
+  "explorerUrl": "https://explorer.buildbear.io/fuzzy-vulture-02f83b07",
+  "verificationUrl": "https://api.buildbear.io/v1/api/verify/etherscan/fuzzy-vulture-02f83b07",
+  "forkingChainId": 1
+}
