@@ -21,22 +21,13 @@ module.exports = {
   networks: {
     hardhat: {},
     buildbear: {
-      url:"https://rpc.buildbear.io/sanam",
+      url: BBTestnet ? BBTestnet.rpcUrl : "",
     },
   },
   solidity: {
     compilers: [
       {
         version: "0.8.16",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
-        },
-      },
-      {
-        version: "0.7.6",
         settings: {
           optimizer: {
             enabled: true,
@@ -72,7 +63,7 @@ module.exports = {
         },
       },
       {
-        version: "0.8.20",
+        version: "0.8.13",
         settings: {
           optimizer: {
             enabled: true,
@@ -81,7 +72,7 @@ module.exports = {
         },
       },
       {
-        version: "0.8.19",
+        version: "0.5.5",
         settings: {
           optimizer: {
             enabled: true,
@@ -98,10 +89,10 @@ module.exports = {
     customChains: [
       {
         network: "buildbear",
-        chainId: 1,
+        chainId: BBTestnet ? BBTestnet.chainId : 0,
         urls: {
-          apiURL: "https://rpc.buildbear.io/verify/etherscan/sanam",
-          browserURL: "https://explorer.buildbear.io/sanam",
+          apiURL: BBTestnet ? BBTestnet.verificationUrl : "",
+          browserURL: BBTestnet ? BBTestnet.explorerUrl : "",
         },
       },
     ],
