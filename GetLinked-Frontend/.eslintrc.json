@@ -1,0 +1,72 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "no-unused-vars": "warn",
+        "func-names": "off",
+        "class-methods-use-this": "off",
+        "no-useless-catch": "warn",
+        "global-require": "warn",
+        "import/no-dynamic-require": "warn",
+        "react/no-unescaped-entities": "off",
+        "react/prop-types": "off",
+        "react/button-has-type": "off",
+        "react/jsx-props-no-spreading": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "jsx-a11y/control-has-associated-label": "off",
+        "react/no-array-index-key": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/destructuring-assignment": "off",
+        "react/jsx-no-bind": "off",
+        "no-use-before-define": [
+            "error",
+            {
+                "variables": false
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "printWidth": 80,
+                "trailingComma": "es5",
+                "semi": true,
+                "jsxSingleQuote": false,
+                "singleQuote": false,
+                "useTabs": true,
+                "endOfLine": "auto"
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+    }
+}

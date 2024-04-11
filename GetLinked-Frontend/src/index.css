@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: linear-gradient(270deg, #903aff 0%, #fe34b9 100%);
+  --secondary: #150e28;
+  --tertiary: #903aff;
+  --quaternary: #d434fe;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--secondary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+}
+
+button {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    270deg,
+    #903aff 0%,
+    #d434fe 56.42%,
+    #ff26b9 99.99%,
+    #fe34b9 100%
+  );
+}
+
+.colored_span {
+  color: #d434fe;
+}

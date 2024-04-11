@@ -1,0 +1,287 @@
+.gl_timeline {
+  height: 1450px;
+  flex-shrink: 0;
+}
+
+.gl_timeline_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  padding: 100px 100px 0 100px;
+}
+
+.overlap-13 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.timeline {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.text-wrapper-46 {
+  color: #ffffff;
+  font-family: "Clash Display", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  left: 547px;
+  letter-spacing: 0;
+  line-height: 32px;
+  position: absolute;
+  top: 0;
+}
+
+.here-is-the {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  left: 444px;
+  letter-spacing: 0;
+  line-height: 24.1px;
+  position: absolute;
+  text-align: center;
+  top: 54px;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 172.4%;
+}
+
+.timeline_lines {
+  left: 621px;
+  position: absolute;
+  width: 4px;
+}
+
+.line-15 {
+  height: 137px;
+  top: 194px;
+}
+
+.line-16 {
+  height: 86px;
+  top: 415px;
+}
+
+.line-17 {
+  height: 86px;
+  top: 576px;
+}
+
+.line-18 {
+  height: 86px;
+  top: 737px;
+}
+
+.line-19 {
+  height: 86px;
+  top: 900px;
+}
+
+.line-20 {
+  height: 86px;
+  top: 1061px;
+}
+
+.timeline_text_wrapper {
+  color: #d434fe;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+}
+
+.text-wrapper-47 {
+  left: 167px;
+  top: 315px;
+}
+
+.text-wrapper-48 {
+  left: 199px;
+  top: 645px;
+}
+
+.text-wrapper-49 {
+  left: 0;
+  top: 979px;
+}
+
+.text-wrapper-50 {
+  left: 747px;
+  top: 491px;
+}
+
+.announcement-of-the {
+  left: 747px;
+  top: 813px;
+}
+
+.text-wrapper-51 {
+  left: 747px;
+  top: 1132px;
+}
+
+.timeline_text_content {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 14px;
+  position: absolute;
+  line-height: 23.9px;
+}
+
+.the-getlinked-tech {
+  left: 74px;
+  text-align: right;
+  top: 356px;
+}
+
+.interested-teams-can {
+  left: 747px;
+  top: 532px;
+}
+
+.interested {
+  left: 122px;
+  text-align: right;
+  top: 686px;
+}
+
+.accepted-teams-can {
+  left: 124px;
+  text-align: right;
+  top: 1020px;
+}
+
+.all-teams-whom-idea {
+  left: 747px;
+  top: 878px;
+}
+
+.teams-get-the {
+  left: 747px;
+  top: 1197px;
+}
+
+.text-wrapper-52 {
+  left: 747px;
+  top: 360px;
+}
+
+.text-wrapper-53 {
+  left: 274px;
+  top: 524px;
+}
+
+.text-wrapper-54 {
+  left: 747px;
+  top: 693px;
+}
+
+.text-wrapper-55 {
+  left: 747px;
+  top: 1013px;
+}
+
+.text-wrapper-56 {
+  left: 274px;
+  top: 846px;
+}
+
+.text-wrapper-57 {
+  left: 274px;
+  top: 1175px;
+}
+
+.overlap-group-3 {
+  background: linear-gradient(
+    180deg,
+    rgb(144, 58, 255) 0%,
+    rgb(212, 52, 254) 100%
+  );
+  border-radius: 26.5px;
+  height: 53px;
+  position: relative;
+  width: 53px;
+}
+
+.text-wrapper-58 {
+  color: #ffffff;
+  font-family: "Montserrat", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 12px;
+}
+
+.no {
+  height: 53px;
+  left: 596px;
+  position: absolute;
+  width: 55px;
+}
+
+.no-1 {
+  top: 342px;
+}
+
+.no-2 {
+  top: 512px;
+}
+
+.no-3 {
+  top: 673px;
+}
+
+.no-4 {
+  top: 834px;
+}
+
+.no-5 {
+  top: 997px;
+}
+
+.no-6 {
+  top: 1158px;
+}
+
+.timeline_stars {
+  object-fit: cover;
+  position: absolute;
+}
+
+.star-24 {
+  height: 32px;
+  left: 38px;
+  top: 1172px;
+  width: 26px;
+}
+
+.star-25 {
+  height: 32px;
+  left: 1081px;
+  top: 662px;
+  width: 26px;
+}
+
+.star-pu-7 {
+  height: 36px;
+  left: 199px;
+  top: 194px;
+  width: 30px;
+}

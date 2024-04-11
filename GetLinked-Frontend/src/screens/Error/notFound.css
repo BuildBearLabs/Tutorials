@@ -1,0 +1,55 @@
+.error-page {
+  background-color: #150e28;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-page > h1 {
+  border: 1px solid #d434fe;
+  font-size: 180px;
+  color: #fff;
+  padding: 100px 50px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 4px #fe34b9;
+  font-family: "Clash Display", sans-serif;
+}
+
+.error-page-text {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.go-back-home-btn {
+  border: none;
+  color: #fff;
+  padding: 7px 25px;
+  transition: 0.2s;
+  border: 1px solid #fff;
+  width: 174px;
+  height: 53px;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.go-back-home-btn:hover {
+  width: 220px;
+}
+
+
+@media screen and (max-width: 968px) {
+  .error-page > h1 {
+    font-size: 120px;
+    padding: 80px 20px;
+  }
+}

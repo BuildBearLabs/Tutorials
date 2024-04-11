@@ -1,0 +1,321 @@
+.gl_attribute {
+  height: 900px;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.gl_attribute_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.gl_attribute_left {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  background:
+    url(../../../../assets/attribute-left-Purple-Lens-Flare-PNG.png),
+    #150e28 -204.25px 7px / 119.817% 104.852% no-repeat;
+  background-repeat: no-repeat;
+  background-blend-mode: hard-light;
+  background-position: top 230px left;
+  background-size: 800px;
+  position: relative;
+}
+
+.attribute.bright_purple_star {
+  position: absolute;
+  top: 7%;
+  left: 25%;
+}
+
+.attribute.faint_star {
+  position: absolute;
+  top: 54%;
+  left: 54%;
+}
+
+.attribute.bright_star {
+  position: absolute;
+  bottom: 10%;
+  right: 8%;
+}
+
+.attribute.img_left_lady_hallo {
+  position: absolute;
+  top: 160px;
+  left: 140px;
+}
+
+.attribute.img_left_image {
+  width: 85%;
+  height: 80%;
+  z-index: 2;
+}
+
+.gl_attribute_right {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 100px 0 0;
+  margin-bottom: 50px;
+  background:
+    url(../../../../assets/attribute-right-Purple-Lens-Flare-PNG.svg),
+    #150e28 -204.25px 7px / 119.817% 104.852% no-repeat;
+  background-repeat: no-repeat;
+  background-blend-mode: hard-light;
+  background-position: bottom -400px right -40%;
+  background-size: 600px;
+}
+
+.judging_criteria {
+  color: #fff;
+  font-family: "Clash Display", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.key_attributes {
+  color: #d434fe;
+  font-family: "Clash Display", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.gl_attribute_right_info_div p {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 173.5%;
+  margin-bottom: 22px;
+}
+
+.gl_attribute_right_info_div p span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff26b9;
+}
+
+.gl_attribute_right_info_div.last {
+  margin-bottom: 30px;
+}
+
+.read_more_attribute_div {
+  width: 100%;
+  height: 53px;
+}
+
+.read_more_attribute_div > button {
+  width: 172px;
+  height: 53px;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 40px;
+  transition: all 0.5s;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.read_more_attribute_div > button:after {
+  content: "→";
+  position: absolute;
+  opacity: 0;
+  top: 18px;
+  right: -30px;
+  transition: 0.5s;
+}
+
+.read_more_attribute_div > button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.read_more_attribute_div > button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+@media screen and (max-width: 968px) {
+  .gl_attribute {
+    height: 1000px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .gl_attribute_container {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .gl_attribute_left {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    background:
+      url(../../../../assets/attribute-left-Purple-Lens-Flare-PNG.png),
+      #150e28 -204.25px 7px / 119.817% 104.852% no-repeat;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-position: top 0px left;
+    background-size: 400px;
+    position: relative;
+  }
+
+  .attribute.bright_purple_star {
+    position: absolute;
+    top: 7%;
+    left: 45%;
+    width: 15px;
+    height: 15px;
+  }
+
+  .attribute.faint_star {
+    position: absolute;
+    top: 54%;
+    left: 54%;
+    width: 15px;
+    height: 15px;
+  }
+
+  .attribute.bright_star {
+    position: absolute;
+    bottom: -890px;
+    right: 8%;
+    width: 15px;
+    height: 15px;
+  }
+
+  .attribute.img_left_lady_hallo {
+    display: none;
+  }
+
+  .attribute.img_left_image {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .gl_attribute_right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 40px;
+    margin-bottom: 50px;
+    background:
+      url(../../../../assets/attribute-right-Purple-Lens-Flare-PNG.svg),
+      #150e28 -204.25px 7px / 119.817% 104.852% no-repeat;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-position: bottom right;
+    background-size: 300px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .judging_criteria {
+    color: #fff;
+    font-family: "Clash Display", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .key_attributes {
+    color: #d434fe;
+    font-family: "Clash Display", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  .gl_attribute_right_info_div p {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 173.5%;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+
+  .gl_attribute_right_info_div p span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff26b9;
+    text-align: center;
+  }
+
+  .gl_attribute_right_info_div.last {
+    margin-bottom: 30px;
+  }
+
+  .read_more_attribute_div {
+    width: 100%;
+    height: 53px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .read_more_attribute_div > button {
+    width: 172px;
+    height: 53px;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+  }
+
+  .read_more_attribute_div > button:after {
+    content: "→";
+    position: absolute;
+    opacity: 0;
+    top: 14px;
+    right: -30px;
+    transition: 0.5s;
+  }
+
+  .read_more_attribute_div > button:hover {
+    padding-right: 24px;
+    padding-left: 8px;
+  }
+
+  .read_more_attribute_div > button:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+}
