@@ -1,19 +1,8 @@
-## Foundry
+## Sourcify Verification using BuildBear Sourcify Plugin
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+1. Clone this repository
+2. Change Directory to DAO
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
 
 ### Build
 
@@ -21,34 +10,23 @@ https://book.getfoundry.sh/
 $ forge build
 ```
 
-### Test
-
+ Add the Sandbox details to your Foundry.toml file:
+Example:
 ```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
+$  [rpc_endpoints]
+buildbear = "https://rpc.buildbear.io/sanam"
+[etherscan]
+buildbear = { key = "verifyContract", url="https://rpc.buildbear.io/verify/etherscan/sanam" }
+  
 ```
 
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$  forge script script/Deploy.s.sol --r
+pc-url buildbear --private-key "YOUR PRIVATE KEY" --verify --
+verifier sourcify --verifier-url https://rpc.buildbear.io/verify/sourcify/server/<YOUR NODE ID> -vvvv --broadcast --slow
+  
 ```
 
 ### Cast
