@@ -20,7 +20,7 @@ buildbear = { key = "verifyContract", url="https://rpc.buildbear.io/verify/ether
   
 ```
 
-### Deploy
+### Deploy and Verify
 
 ```shell
 $  forge script script/Deploy.s.sol --r
