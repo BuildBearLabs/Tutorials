@@ -3,4 +3,10 @@ src = "src"
 out = "out"
 libs = ["lib"]
 
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+remappings = ['@openzeppelin/contracts=lib/openzeppelin-contracts/contracts']
+[rpc_endpoints]
+buildbear = "https://rpc.buildbear.io/sanam"
+[profile.sourcify]
+url= "https://rpc.buildbear.io/verify/sourcify/server/sanam"
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
