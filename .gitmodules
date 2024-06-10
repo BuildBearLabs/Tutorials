@@ -1,0 +1,3 @@
+[submodule "DAO/lib/forge-std"]
+	path = DAO/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
