@@ -6,7 +6,7 @@ module.exports = {
   solidity: "0.8.13",
   networks: {
     buildbear: {
-      url: "https://rpc.buildbear.io/yummy-bail-prestor-organa-2eb15be3",
+      url: process.env.BUILDBEAR_MAINNET_KEY,
     },
   },
 };
